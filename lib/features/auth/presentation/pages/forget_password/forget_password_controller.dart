@@ -1,6 +1,6 @@
 part of'forget_password_imports.dart';
 
-class ForgetPasswordData{
+class ForgetPasswordController{
   GlobalKey<FormState> formKey = GlobalKey();
   GlobalKey<CustomButtonState> btnKey = GlobalKey();
 

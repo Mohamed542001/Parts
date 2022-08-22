@@ -1,14 +1,14 @@
 part of 'login_widgets_imports.dart';
 
 class BuildLoginForm extends StatelessWidget {
-  final LoginData loginData;
+  final LoginController controller;
 
-  const BuildLoginForm({Key? key, required this.loginData}) : super(key: key);
+  const BuildLoginForm({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: loginData.formKey,
+      key: controller.formKey,
       child: Column(
         children: [
           GenericTextField(
@@ -22,7 +22,7 @@ class BuildLoginForm extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: SvgPicture.asset(Res.mobile),
             ),
-            onChange: loginData.onChangePhone,
+            onChange: controller.onChangePhone,
           ),
           GenericTextField(
             fieldTypes: FieldTypes.password,
@@ -35,7 +35,7 @@ class BuildLoginForm extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: SvgPicture.asset(Res.password),
             ),
-            onChange: loginData.onChangePassword,
+            onChange: controller.onChangePassword,
           ),
         ],
       ),

@@ -8,7 +8,7 @@ class ResetPassword extends StatefulWidget {
 }
 
 class _ResetPasswordState extends State<ResetPassword> {
-  final ResetPasswordData resetPasswordData=ResetPasswordData();
+  final ResetPasswordController controller=ResetPasswordController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +20,8 @@ class _ResetPasswordState extends State<ResetPassword> {
             title: "Set new password",
             subTitle: "In order for us to be able to reset your password, please Enter your phone number below",
           ),
-          ResetPasswordForm(resetPasswordData: resetPasswordData),
-          ResetPasswordButton(resetPasswordData: resetPasswordData,),
+          ResetPasswordForm(controller: controller),
+          ResetPasswordButton(controller: controller,),
       ],),
     );
   }

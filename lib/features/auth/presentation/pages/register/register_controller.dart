@@ -1,6 +1,6 @@
 part of'register_imports.dart';
 
-class RegisterData{
+class RegisterController{
  late PageController pageController;
 
  final GlobalKey<FormState> nameFormKey = GlobalKey();

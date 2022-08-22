@@ -4,12 +4,9 @@ part of 'router_imports.dart';
   routes: <AutoRoute>[
     //auth routes
     AdaptiveRoute(page: Splash, initial: true),
-    AdaptiveRoute(page: SelectLanguage),
     AdaptiveRoute(page: Login),
-    AdaptiveRoute(page: IntroScreen),
     AdaptiveRoute(page: Register),
     AdaptiveRoute(page: ActiveAccount),
-    AdaptiveRoute(page: VerifyCode),
     AdaptiveRoute(page: ResetPassword),
     AdaptiveRoute(page: ForgetPassword),
     AdaptiveRoute(page: Terms),

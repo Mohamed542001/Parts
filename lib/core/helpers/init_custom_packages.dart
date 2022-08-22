@@ -28,7 +28,8 @@ class InitCustomPackages{
               BorderRadius? radius,
               Color? focusBorderColor,
               EdgeInsets? padding,
-              Color? enableColor}) =>
+              Color? enableColor,
+              double? hintSize,}) =>
             CustomInputDecoration(
                 lang: language,
                 labelTxt: label,

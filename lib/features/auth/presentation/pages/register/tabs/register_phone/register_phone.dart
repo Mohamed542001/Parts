@@ -1,9 +1,9 @@
 part of 'register_phone_imports.dart';
 
 class RegisterPhone extends StatefulWidget {
-  final RegisterData registerData;
+  final RegisterController controller;
 
-  const RegisterPhone({Key? key, required this.registerData}) : super(key: key);
+  const RegisterPhone({Key? key, required this.controller}) : super(key: key);
 
   @override
   _RegisterPhoneState createState() => _RegisterPhoneState();
@@ -12,11 +12,11 @@ class RegisterPhone extends StatefulWidget {
 class _RegisterPhoneState extends State<RegisterPhone> {
   @override
   Widget build(BuildContext context) {
-    final name = widget.registerData.nikeName.text.split(" ").first;
+    final name = widget.controller.nikeName.text.split(" ").first;
     return Scaffold(
       appBar: BuildAuthAppBar(
         title: "Hello, $name",
-        onBack: () => widget.registerData.goBack(),
+        onBack: () => widget.controller.goBack(),
       ),
       body: ListView(
         children: [
@@ -25,9 +25,9 @@ class _RegisterPhoneState extends State<RegisterPhone> {
             color: MyColors.infoColor,
             backgroundColor: MyColors.grey.withOpacity(.2),
           ),
-          RegisterPhoneForm(registerData: widget.registerData),
-          BuildTermsView(registerData: widget.registerData),
-          RegisterPhoneButton(registerData: widget.registerData)
+          RegisterPhoneForm(controller: widget.controller),
+          BuildTermsView(controller: widget.controller),
+          RegisterPhoneButton(controller: widget.controller)
         ],
       ),
     );

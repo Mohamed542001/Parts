@@ -1,14 +1,14 @@
 part of'register_phone_widgets_imports.dart';
 class RegisterPhoneForm extends StatelessWidget {
-  final RegisterData registerData;
-  const RegisterPhoneForm({Key? key,required this.registerData}) : super(key: key);
+  final RegisterController controller;
+  const RegisterPhoneForm({Key? key,required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
       child: Form(
-        key: registerData.phoneFormKey,
+        key: controller.phoneFormKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -17,7 +17,7 @@ class RegisterPhoneForm extends StatelessWidget {
               fieldTypes: FieldTypes.normal,
               type: TextInputType.text,
               action: TextInputAction.next,
-              controller: registerData.fullName,
+              controller: controller.fullName,
               validate: (value) => value?.validateEmpty(),
               label: "Full Name",
               margin: EdgeInsets.only(top: 20),
@@ -25,7 +25,7 @@ class RegisterPhoneForm extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset(Res.mobile),
               ),
-               onChange: registerData.onChangeFullName,
+               onChange: controller.onChangeFullName,
             ),
             GenericTextField(
               fieldTypes: FieldTypes.password,
@@ -33,12 +33,12 @@ class RegisterPhoneForm extends StatelessWidget {
               action: TextInputAction.done,
               validate: (value) => value?.validatePassword(),
               label: "Password",
-              controller: registerData.password,
+              controller: controller.password,
               margin: EdgeInsets.only(top: 20),
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset(Res.password),
-              ), onChange: registerData.onChangePassword,
+              ), onChange: controller.onChangePassword,
             ),
           ],
         ),

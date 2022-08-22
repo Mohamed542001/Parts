@@ -13,7 +13,7 @@ import 'package:injectable/injectable.dart';
 
 import 'home_remote_data_source.dart';
 
-@lazySingleton
+@Injectable(as: HomeRemoteDataSource)
 class ImplHomeRemoteDataSource extends HomeRemoteDataSource {
   @override
   Future<Either<Failure, List<AdModel>>> getAds(bool param) async {

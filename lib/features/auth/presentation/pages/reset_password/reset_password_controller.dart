@@ -1,6 +1,6 @@
 part of'reset_password_imports.dart';
 
-class ResetPasswordData{
+class ResetPasswordController{
 
   TextEditingController password=TextEditingController();
   TextEditingController confirmPassword=TextEditingController();

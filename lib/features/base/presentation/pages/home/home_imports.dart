@@ -6,4 +6,4 @@ import '../../../../general/presentation/pages/repeated_questions/repeated_quest
 import 'widgets/home_widgets_imports.dart';
 
 part 'home.dart';
-part 'home_data.dart';
+part 'home_controller.dart';

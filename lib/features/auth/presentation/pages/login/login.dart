@@ -8,7 +8,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final LoginData loginData = LoginData();
+  final LoginController controller = LoginController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +26,11 @@ class _LoginState extends State<Login> {
               size: 22,
             ),
             SizedBox(height: 20),
-            BlocBuilder<GenericBloc<LoginParams>, GenericState<LoginParams>>(
-              bloc: loginData.loginCubit,
-              builder: (context, state) {
-                return Visibility(
-                  child: loginData.identity == null
-                      ? Container()
-                      : IdentityView(loginData.identity!),
-                  visible: loginData.identity != null,
-                  replacement: BuildLoginForm(loginData: loginData),
-                );
-              },
-            ),
-            BuildLoginButton(loginData: loginData),
+            BuildLoginForm(controller: controller),
+            BuildLoginButton(controller: controller),
             BuildForgetPasswordView(),
             Divider(height: 30),
-            BuildLoginSocialMedia(loginData: loginData),
+            BuildLoginSocialMedia(controller: controller),
           ],
         ),
       ),

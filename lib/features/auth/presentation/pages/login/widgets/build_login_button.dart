@@ -1,31 +1,22 @@
 part of 'login_widgets_imports.dart';
 
 class BuildLoginButton extends StatelessWidget {
-  final LoginData loginData;
+  final LoginController controller;
 
-  const BuildLoginButton({Key? key, required this.loginData}) : super(key: key);
+  const BuildLoginButton({Key? key, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenericBloc<LoginParams>, GenericState<LoginParams>>(
-      bloc: loginData.loginCubit,
-      builder: (context, state) {
-        bool isEmpty = false;
-        return AbsorbPointer(
-          absorbing: isEmpty,
-          child: LoadingButton(
-              title: "Login",
-              // onTap: ()=> loginData.openIdConnectionPackage(context),
-              onTap: () => AutoRouter.of(context).push(HomeRoute()),
-              color: isEmpty? MyColors.offWhite:MyColors.primary,
-              textColor: isEmpty? MyColors.black:MyColors.white,
-              btnKey: loginData.btnKey,
-              margin: EdgeInsets.only(top: 40),
-              fontSize: 16,
-              height: 55
-          ),
-        );
-      },
+    return LoadingButton(
+        title: "Login",
+        onTap: () => AutoRouter.of(context).push(HomeRoute()),
+        color: MyColors.primary,
+        textColor: MyColors.white,
+        btnKey: controller.btnKey,
+        margin: EdgeInsets.only(top: 40),
+        fontSize: 16,
+        height: 55,
     );
   }
 }

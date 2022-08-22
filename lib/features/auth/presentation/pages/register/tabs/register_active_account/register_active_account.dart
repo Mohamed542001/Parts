@@ -1,8 +1,8 @@
 part of'register_active_account_imports.dart';
 
 class RegisterActiveAccount extends StatefulWidget {
-  final RegisterData registerData;
-  const RegisterActiveAccount({Key? key,required this.registerData}) : super(key: key);
+  final RegisterController controller;
+  const RegisterActiveAccount({Key? key,required this.controller}) : super(key: key);
 
   @override
   _RegisterActiveAccountState createState() => _RegisterActiveAccountState();
@@ -13,7 +13,7 @@ class _RegisterActiveAccountState extends State<RegisterActiveAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white,
-      appBar: BuildAuthAppBar(title: "Let's verify your mobile",onBack: ()=>widget.registerData.goBack(),),
+      appBar: BuildAuthAppBar(title: "Let's verify your mobile",onBack: ()=>widget.controller.goBack(),),
       body: ListView(
         // padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         children: [
@@ -21,9 +21,9 @@ class _RegisterActiveAccountState extends State<RegisterActiveAccount> {
           const SizedBox(height: 20,),
           HeaderText(),
           BuildPinField(
-            onComplete: widget.registerData.onComplete,
+            onComplete: widget.controller.onComplete,
           ),
-          RegisterActiveAccountButton(registerData: widget.registerData),
+          RegisterActiveAccountButton(controller: widget.controller),
         ],
       ),
     );

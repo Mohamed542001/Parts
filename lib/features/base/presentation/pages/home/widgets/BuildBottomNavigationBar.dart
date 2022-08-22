@@ -1,14 +1,14 @@
 part of 'home_widgets_imports.dart';
 
 class BuildBottomNavigationBar extends StatelessWidget {
-  final HomeData homeData;
+  final HomeController controller;
 
-  const BuildBottomNavigationBar({required this.homeData});
+  const BuildBottomNavigationBar({required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GenericBloc<int>, GenericState<int>>(
-      bloc: homeData.homeTabCubit,
+      bloc: controller.homeTabCubit,
       builder: (context, state) {
         return AnimatedBottomNavigationBar.builder(
           itemCount: 3,
@@ -16,7 +16,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
             return BuildTabIcon(
               index: index,
               active: isActive,
-              homeData: homeData,
+              controller: controller,
             );
           },
           backgroundColor: MyColors.white,
@@ -25,7 +25,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
           gapLocation: GapLocation.none,
           splashSpeedInMilliseconds: 300,
           height: 50,
-          onTap: (index) => homeData.animateTabsPages(index, context),
+          onTap: (index) => controller.animateTabsPages(index, context),
         );
       },
     );

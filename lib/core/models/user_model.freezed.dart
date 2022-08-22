@@ -12,36 +12,11 @@ part of 'user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserModel _$UserModelFromJson(Map<String, dynamic> json) {
   return _UserModel.fromJson(json);
 }
-
-/// @nodoc
-class _$UserModelTearOff {
-  const _$UserModelTearOff();
-
-  _UserModel call(
-      {@JsonKey(name: "id") required String id,
-      @JsonKey(name: "name") required String name,
-      @JsonKey(name: "email") required String email,
-      @JsonKey(name: "phone") required String phone}) {
-    return _UserModel(
-      id: id,
-      name: name,
-      email: email,
-      phone: phone,
-    );
-  }
-
-  UserModel fromJson(Map<String, Object?> json) {
-    return UserModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserModel = _$UserModelTearOff();
 
 /// @nodoc
 mixin _$UserModel {
@@ -108,10 +83,10 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
-  factory _$UserModelCopyWith(
-          _UserModel value, $Res Function(_UserModel) then) =
-      __$UserModelCopyWithImpl<$Res>;
+abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
+  factory _$$_UserModelCopyWith(
+          _$_UserModel value, $Res Function(_$_UserModel) then) =
+      __$$_UserModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: "id") String id,
@@ -121,13 +96,14 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
-    implements _$UserModelCopyWith<$Res> {
-  __$UserModelCopyWithImpl(_UserModel _value, $Res Function(_UserModel) _then)
-      : super(_value, (v) => _then(v as _UserModel));
+class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
+    implements _$$_UserModelCopyWith<$Res> {
+  __$$_UserModelCopyWithImpl(
+      _$_UserModel _value, $Res Function(_$_UserModel) _then)
+      : super(_value, (v) => _then(v as _$_UserModel));
 
   @override
-  _UserModel get _value => super._value as _UserModel;
+  _$_UserModel get _value => super._value as _$_UserModel;
 
   @override
   $Res call({
@@ -136,7 +112,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? email = freezed,
     Object? phone = freezed,
   }) {
-    return _then(_UserModel(
+    return _then(_$_UserModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -192,13 +168,14 @@ class _$_UserModel implements _UserModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserModel &&
+            other is _$_UserModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.phone, phone));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -209,21 +186,23 @@ class _$_UserModel implements _UserModel {
 
   @JsonKey(ignore: true)
   @override
-  _$UserModelCopyWith<_UserModel> get copyWith =>
-      __$UserModelCopyWithImpl<_UserModel>(this, _$identity);
+  _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
+      __$$_UserModelCopyWithImpl<_$_UserModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserModelToJson(this);
+    return _$$_UserModelToJson(
+      this,
+    );
   }
 }
 
 abstract class _UserModel implements UserModel {
   factory _UserModel(
-      {@JsonKey(name: "id") required String id,
-      @JsonKey(name: "name") required String name,
-      @JsonKey(name: "email") required String email,
-      @JsonKey(name: "phone") required String phone}) = _$_UserModel;
+      {@JsonKey(name: "id") required final String id,
+      @JsonKey(name: "name") required final String name,
+      @JsonKey(name: "email") required final String email,
+      @JsonKey(name: "phone") required final String phone}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
@@ -242,6 +221,6 @@ abstract class _UserModel implements UserModel {
   String get phone;
   @override
   @JsonKey(ignore: true)
-  _$UserModelCopyWith<_UserModel> get copyWith =>
+  _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

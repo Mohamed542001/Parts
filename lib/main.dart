@@ -3,6 +3,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:flutter_tdd/core/helpers/global_notification.dart';
 
 import 'core/bloc/lang_cubit/lang_cubit.dart';
 import 'core/helpers/di.dart';
@@ -13,6 +14,7 @@ void main()async{
   await Firebase.initializeApp();
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   await configureDependencies();
+  getIt<GlobalNotification>().setupNotification();
   runApp(
     BlocProvider(
       create: (BuildContext context) => LangCubit(),

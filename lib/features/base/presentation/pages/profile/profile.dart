@@ -8,7 +8,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final ProfileData profileData = ProfileData();
+  final ProfileController controller = ProfileController();
 
   @override
   void initState() {

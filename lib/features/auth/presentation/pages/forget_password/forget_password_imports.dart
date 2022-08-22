@@ -7,4 +7,4 @@ import '../../widgets/build_header_title.dart';
 
 
 part 'forget_password.dart';
-part 'forget_password_data.dart';
+part 'forget_password_controller.dart';

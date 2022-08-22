@@ -8,10 +8,10 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final RegisterData registerData = RegisterData();
+  final RegisterController controller = RegisterController();
   @override
   void initState() {
-    registerData.pageController=PageController(initialPage: 0);
+    controller.pageController=PageController(initialPage: 0);
     super.initState();
   }
 
@@ -22,11 +22,11 @@ class _RegisterState extends State<Register> {
       body: PageView(
         scrollDirection: Axis.horizontal,
         children: [
-          RegisterName(registerData: registerData),
-          RegisterPhone(registerData: registerData,),
-          RegisterActiveAccount(registerData: registerData),
+          RegisterName(controller: controller),
+          RegisterPhone(controller: controller,),
+          RegisterActiveAccount(controller: controller),
         ],
-        controller: registerData.pageController,
+        controller: controller.pageController,
       ),
     );
   }

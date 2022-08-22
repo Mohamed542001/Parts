@@ -1,6 +1,6 @@
 part of 'home_imports.dart';
 
-class HomeData {
+class HomeController {
 
   final GenericBloc<int> homeTabCubit = GenericBloc(0);
   late AnimationController animationController;

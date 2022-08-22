@@ -8,4 +8,4 @@ import 'package:flutter_tdd/features/auth/presentation/pages/register/tabs/regis
 import 'package:tf_custom_widgets/tf_custom_widgets.dart';
 
 part 'register.dart';
-part 'register_data.dart';
+part 'register_controller.dart';

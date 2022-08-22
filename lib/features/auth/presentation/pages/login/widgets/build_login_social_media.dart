@@ -1,8 +1,8 @@
 part of 'login_widgets_imports.dart';
 
 class BuildLoginSocialMedia extends StatelessWidget {
-  final LoginData loginData;
-  const BuildLoginSocialMedia({Key? key, required this.loginData}) : super(key: key);
+  final LoginController controller;
+  const BuildLoginSocialMedia({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

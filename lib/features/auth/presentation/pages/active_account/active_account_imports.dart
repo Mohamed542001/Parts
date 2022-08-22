@@ -8,4 +8,4 @@ import '../../widgets/build_header_title.dart';
 import 'widgets/active_account_widgets_imports.dart';
 
 part 'active_account.dart';
-part 'active_account_data.dart';
+part 'active_account_controller.dart';

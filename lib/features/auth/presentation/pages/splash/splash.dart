@@ -8,11 +8,11 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  final SplashData splashData = SplashData();
+  final SplashController controller = SplashController();
 
   @override
   void initState() {
-    splashData.manipulateSaveData(context);
+    controller.manipulateSaveData(context);
     super.initState();
   }
 

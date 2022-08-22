@@ -8,7 +8,7 @@ class ActiveAccount extends StatefulWidget {
 }
 
 class _ActiveAccountState extends State<ActiveAccount> {
-  final ActiveAccountData activeAccountData = ActiveAccountData();
+  final ActiveAccountController controller = ActiveAccountController();
 
   @override
   void initState() {
@@ -28,9 +28,9 @@ class _ActiveAccountState extends State<ActiveAccount> {
             subTitle: "In order for us to be able to reset your password, please enter your phone number below.",
           ),
           BuildPinField(
-            onComplete: activeAccountData.onComplete,
+            onComplete: controller.onComplete,
           ),
-          BuildActiveButton(activeAccountData: activeAccountData),
+          BuildActiveButton(controller: controller),
         ],
       ),
     );

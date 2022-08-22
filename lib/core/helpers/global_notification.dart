@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,15 +13,10 @@ class GlobalNotification {
   StreamController.broadcast();
 
   late FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
-  static late BuildContext context;
-  // static GlobalNotification instance =GlobalNotification._();
+
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
-  GlobalNotification._();
 
-  GlobalNotification();
-
-  setupNotification(BuildContext cxt)async{
-    context = cxt;
+  setupNotification()async{
     _flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
     const android = AndroidInitializationSettings("@mipmap/launcher_icon");
     const ios =IOSInitializationSettings();

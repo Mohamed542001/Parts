@@ -8,11 +8,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
-  final HomeData homeData = HomeData();
+  final HomeController controller = HomeController();
 
   @override
   void initState() {
-    homeData.initBottomNavigation(this);
+    controller.initBottomNavigation(this);
     super.initState();
   }
 
@@ -22,7 +22,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       length: 3,
       child: Scaffold(
         body: TabBarView(
-          controller: homeData.tabController,
+          controller: controller.tabController,
           physics: NeverScrollableScrollPhysics(),
           children: [
             RepeatedQuestions(),
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             Container(),
           ],
         ),
-        bottomNavigationBar: BuildBottomNavigationBar(homeData: homeData),
+        bottomNavigationBar: BuildBottomNavigationBar(controller: controller),
       ),
     );
   }
