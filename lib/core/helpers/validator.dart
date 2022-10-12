@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_tdd/core/localization/localization_methods.dart';
 
 extension Validator on String {

@@ -7,7 +7,7 @@ class FirebaseAnalyticsHelper {
   FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
 
-  userLogin(String phone)async{
+ Future<void> userLogin(String phone)async{
     await analytics.logEvent(
         name: 'user_login_click',
         parameters: {
@@ -17,7 +17,7 @@ class FirebaseAnalyticsHelper {
   }
 
 
-  userRegister(String name, String phone)async{
+  Future<void> userRegister(String name, String phone)async{
     await analytics.logEvent(
         name: 'user_register-click',
         parameters: {
@@ -29,7 +29,7 @@ class FirebaseAnalyticsHelper {
 
 
 
-  startAVideoCallEvent(String phone)async{
+  Future<void> startAVideoCallEvent(String phone)async{
     await analytics.logEvent(
         name: 'forget_password_click',
         parameters: {

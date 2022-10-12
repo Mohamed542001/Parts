@@ -12,7 +12,8 @@ import 'custom_toast.dart';
 
 @lazySingleton
 class Utilities {
-  copyToClipBoard(String text) {
+
+ void copyToClipBoard(String text) {
     Clipboard.setData(ClipboardData(text: text)).then((value) {
       CustomToast.showSnakeBar("Copied successfully", type: ToastType.success);
     });
@@ -87,30 +88,22 @@ class Utilities {
 
   /// used to get the current store path
   Future<String> getFilePath() async {
-    String _sdPath = "";
-    // if (Platform.isIOS) {
-    //   Directory tempDir = await getTemporaryDirectory();
-    //   _sdPath = tempDir.path;
-    // } else {
-    //   _sdPath = "/storage/emulated/0/new_record_sound";
-    // }
+    String sdPath = "";
     Directory tempDir = await getTemporaryDirectory();
-    _sdPath = tempDir.path;
-    var d = Directory(_sdPath);
+    sdPath = tempDir.path;
+    var d = Directory(sdPath);
     if (!d.existsSync()) {
       d.createSync(recursive: true);
     }
-    String storagePath = _sdPath + "/" + DateTime.now().toIso8601String() +".m4a";
+    String storagePath = "$sdPath/${DateTime.now().toIso8601String()}.m4a";
     return storagePath;
   }
 
   Future<String> getAddress(LatLng latLng, BuildContext context) async {
     GeoCode geoCode = GeoCode();
-
     try {
       var address = await geoCode.reverseGeocoding(latitude: latLng.latitude, longitude: latLng.longitude);
       var data = "${address.countryName??""}  ${address.city??""}  ${address.region??""}  ${address.streetAddress??""}";
-      print(data);
       return data;
     } catch (e) {
       return "";

@@ -1,8 +1,10 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rate_my_app/rate_my_app.dart';
+import 'package:tf_custom_widgets/tf_custom_widgets.dart';
 
 @lazySingleton
 class RateAppHelper {
@@ -18,22 +20,20 @@ class RateAppHelper {
   );
 
   Future<void> showDialog(BuildContext context)async{
-    await setupConfiguration(context);
+    setupConfiguration(context);
     rateMyApp.showStarRateDialog(
       context,
       title: 'Rate this app', // The dialog title.
       message: 'You like this app ? Then take a little bit of your time to leave a rating :', // The dialog message.
-      // contentBuilder: (context, defaultContent) => content, // This one allows you to change the default dialog content.
-      actionsBuilder: (context, stars) { // Triggered when the user updates the star rating.
-        return [ // Return a list of actions (that will be shown at the bottom of the dialog).
-          FlatButton(
-            child: Text('OK'),
-            onPressed: () async {
-              print('Thanks for the ' + (stars == null ? '0' : stars.round().toString()) + ' star(s) !');
-              // You can handle the result as you want (for instance if the user puts 1 star then open your contact page, if he puts more then open the store page, etc...).
-              // This allows to mimic the behavior of the default "Rate" button. See "Advanced > Broadcasting events" for more information :
-              await rateMyApp.callEvent(RateMyAppEventType.rateButtonPressed);
-              Navigator.pop<RateMyAppDialogButton>(context, RateMyAppDialogButton.rate);
+      actionsBuilder: (context, stars) {
+        return [
+          DefaultButton(
+            title: 'OK',
+            onTap: () async {
+              log('Thanks for the ${stars == null ? '0' : stars.round().toString()} star(s) !');
+              await rateMyApp.callEvent(RateMyAppEventType.rateButtonPressed).then((value) {
+                Navigator.pop<RateMyAppDialogButton>(context, RateMyAppDialogButton.rate);
+              });
             },
           ),
         ];
@@ -69,13 +69,13 @@ class RateAppHelper {
             // The button click listener (useful if you want to cancel the click event).
             switch (button) {
               case RateMyAppDialogButton.rate:
-                print('Clicked on "Rate".');
+                log('Clicked on "Rate".');
                 break;
               case RateMyAppDialogButton.later:
-                print('Clicked on "Later".');
+                log('Clicked on "Later".');
                 break;
               case RateMyAppDialogButton.no:
-                print('Clicked on "No".');
+                log('Clicked on "No".');
                 break;
             }
 
@@ -86,8 +86,6 @@ class RateAppHelper {
           onDismissed: () => rateMyApp.callEvent(
             RateMyAppEventType.laterButtonPressed,
           ), // Called when the user dismissed the dialog (either by taping outside or by pressing the "back" button).
-          // contentBuilder: (context, defaultContent) => content, // This one allows you to change the default dialog content.
-          // actionsBuilder: (context) => [], // This one allows you to use your own buttons.
         );
       }
     });

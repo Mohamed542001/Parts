@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/helpers/loading_helper.dart';
@@ -32,9 +34,9 @@ class AuthInterceptor extends Interceptor {
       final result = await refreshToken();
       if (result) {
         final result = await _retry(err, handler);
-        if (result)
+        if (result) {
           return;
-        else {
+        } else {
           if (err.requestOptions.headers["requiresToken"] ==
               true &&
               isInvalidSession) getIt<LoadingHelper>().showInvalidSession();
@@ -71,9 +73,9 @@ class AuthInterceptor extends Interceptor {
 
       if (result.isRight()) {
         var response = result.fold((l) => null, (r) => r);
-        var data = response!.data;
-        var accessToken = data['result'];
-        if (accessToken != null && (accessToken?.isNotEmpty ?? false)) {
+        Map<String, dynamic> data = response!.data;
+        String? accessToken = data['result'];
+        if (accessToken != null && (accessToken.isNotEmpty)) {
           pref.setString("token",accessToken);
           pref.setString("refreshToken",refreshToken??"");
 
@@ -82,7 +84,7 @@ class AuthInterceptor extends Interceptor {
       }
       return Future.value(false);
     } catch (error, s) {
-      print('refreshToken in AuthInterceptor error $error | s $s');
+      log('refreshToken in AuthInterceptor error $error | s $s');
       return Future.value(false);
     }
   }
@@ -96,15 +98,13 @@ class AuthInterceptor extends Interceptor {
       final resistanceAccessToken = pref.getString("token");
 
       dioError.requestOptions.headers["Authorization"] =
-          "Bearer " + resistanceAccessToken!;
+          "Bearer ${resistanceAccessToken!}";
 
       //create request with new access token
       final opts = Options(
         method: dioError.requestOptions.method,
         headers: dioError.requestOptions.headers,
       );
-      print('opts.headers ${opts.headers}');
-
       final cloneReq = await dio.request(dioError.requestOptions.path,
           options: opts,
           data: dioError.requestOptions.data,
@@ -113,7 +113,7 @@ class AuthInterceptor extends Interceptor {
       handler.resolve(cloneReq);
       return Future.value(true);
     } catch (e) {
-      print(
+      log(
           'error happened in _retry and then we will logout from the application');
       return Future.value(false);
     }

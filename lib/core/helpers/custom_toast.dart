@@ -12,7 +12,7 @@ class CustomToast {
     ToastType.info: MyColors.infoColor,
   };
 
-  static showSnakeBar(msg,
+  static void showSnakeBar(msg,
       {Color? color,
       Color? textColor,
       ToastGravity? toastGravity,
@@ -26,7 +26,7 @@ class CustomToast {
         fontSize: 16.0);
   }
 
-  static showSimpleToast(
+  static void showSimpleToast(
       {required String msg,
       Color? color,
       Color? textColor,
