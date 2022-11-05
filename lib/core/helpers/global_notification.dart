@@ -24,8 +24,8 @@ class GlobalNotification {
     const initSettings =InitializationSettings(android: android, iOS: ios);
     _flutterLocalNotificationsPlugin.initialize(
       initSettings,
-      onDidReceiveBackgroundNotificationResponse:(details)=> flutterNotificationClick( details.payload),
-      onDidReceiveNotificationResponse: (details)=> flutterNotificationClick( details.payload),
+      // onDidReceiveBackgroundNotificationResponse:(details)=> flutterNotificationClick( details.payload),
+      // onDidReceiveNotificationResponse: (details)=> flutterNotificationClick( details.payload),
     );
     await Firebase.initializeApp();
     final settings = await messaging.requestPermission(provisional: true);
