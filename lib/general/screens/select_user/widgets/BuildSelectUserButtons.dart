@@ -1,4 +1,4 @@
-part of 'build_select_user_widgets_imports.dart';
+part of 'SelectUserWidgetsImports.dart';
 
 class BuildSelectUserButtons extends StatelessWidget {
   final SelectUserData selectUserData;
@@ -8,7 +8,6 @@ class BuildSelectUserButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = context.read<UserCubit>().state.model;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -16,10 +15,7 @@ class BuildSelectUserButtons extends StatelessWidget {
           LoadingButton(
               borderRadius: 8,
               title: "مدير",
-              onTap: () {
-                context.read<UserCubit>().onUpdateUserData(UserModel(data: CustomerModel()));
-                AutoRouter.of(context).push(const LoginRoute());
-              },
+              onTap: () => selectUserData.onSelectManager(context),
               color: MyColors.primary,
               textColor: MyColors.white,
               btnKey: selectUserData.btnKey1,
@@ -27,13 +23,8 @@ class BuildSelectUserButtons extends StatelessWidget {
               fontSize: 14),
           LoadingButton(
               borderRadius: 8,
-              title:"موظف",
-              onTap: () {
-                context
-                    .read<UserCubit>()
-                    .onUpdateUserData(UserModel());
-                AutoRouter.of(context).push(const LoginRoute());
-              },
+              title: "موظف",
+              onTap: () => selectUserData.onSelectUser(context),
               color: MyColors.primary,
               textColor: MyColors.white,
               btnKey: selectUserData.btnKey2,

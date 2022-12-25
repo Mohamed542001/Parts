@@ -1,11 +1,18 @@
-part of 'verify_code_imports.dart';
+part of 'VerifyCodeImports.dart';
 
 class VerifyCodeData {
+  // variables
   String? code;
+
+  // blocs
   final GenericBloc<bool> codeCubit = GenericBloc(false);
+
+  // keys
   GlobalKey<CustomButtonState> btnKey = GlobalKey();
   GlobalKey<FormState> formKey = GlobalKey();
   GenericBloc<String> timeCubit = GenericBloc("0");
+
+  // methods
 
   void onComplete(String value) {
     codeCubit.onUpdateData(value.length == 4);
@@ -19,7 +26,8 @@ class VerifyCodeData {
         return;
       }
       btnKey.currentState!.animateForward();
-      var data = await GeneralRepository(context).sendCode(code??"", phoneOrEmail);
+      var data =
+          await GeneralRepository(context).sendCode(code ?? "", phoneOrEmail);
       btnKey.currentState!.animateReverse();
       // route to home
     }

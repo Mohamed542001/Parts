@@ -1,5 +1,4 @@
-part of 'splash_imports.dart';
-
+part of 'SplashImports.dart';
 
 class Splash extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
@@ -33,17 +32,26 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            image:  DecorationImage(image: AssetImage(Res.onboardingOne), fit: BoxFit.fill)),
+          image: DecorationImage(
+            image: AssetImage(Res.onboardingOne),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Center(
           child: AnimationContainer(
-              index: 0,
-              vertical: true,
-              duration: const Duration(milliseconds: 800),
-              distance: MediaQuery.of(context).size.height * .3,
-              child: Hero(
-                tag:Res.logo,
-                child: Image.asset(Res.logo, width: 250, height: 250),
-              )),
+            index: 0,
+            vertical: true,
+            duration: const Duration(milliseconds: 800),
+            distance: MediaQuery.of(context).size.height * .3,
+            child: Hero(
+              tag: Res.logo,
+              child: Image.asset(
+                Res.logo,
+                width: 250,
+                height: 250,
+              ),
+            ),
+          ),
         ),
       ),
     );

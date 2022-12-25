@@ -12,29 +12,31 @@ class BuildLoginForm extends StatelessWidget {
       child: Column(
         children: [
           GenericTextField(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16),
-              controller: loginData.email,
-              fieldTypes: FieldTypes.normal,
-              type: TextInputType.text,
-              action: TextInputAction.next,
-              validate: (value) => value?.validateEmail(context),
-              label: tr(context,"mail"),
-              margin: const EdgeInsets.only(top: 20)),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            controller: loginData.email,
+            fieldTypes: FieldTypes.normal,
+            type: TextInputType.text,
+            action: TextInputAction.next,
+            validate: (value) => value?.validateEmail(context),
+            label: tr(context, "mail"),
+            margin: const EdgeInsets.only(top: 20),
+          ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
               bloc: loginData.passwordCubit,
               builder: (context, state) {
                 return GenericTextField(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                   controller: loginData.password,
-                  fieldTypes: !state.data ? FieldTypes.password : FieldTypes.normal,
+                  fieldTypes:
+                      !state.data ? FieldTypes.password : FieldTypes.normal,
                   type: TextInputType.visiblePassword,
                   action: TextInputAction.done,
                   validate: (value) => value?.validatePassword(context),
-                  label: tr(context,"password"),
+                  label: tr(context, "password"),
                   margin: const EdgeInsets.only(top: 20),
                   suffixIcon: IconButton(
-                    onPressed: () => loginData.passwordCubit.onUpdateData(!state.data),
+                    onPressed: () =>
+                        loginData.passwordCubit.onUpdateData(!state.data),
                     icon: Icon(
                         !state.data ? Icons.visibility : Icons.visibility_off,
                         size: 20,

@@ -1,23 +1,26 @@
-part of 'register_imports.dart';
+part of 'RegisterImports.dart';
 
 class RegisterDate {
+  // blocs
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
   final GenericBloc<bool> termCubit = GenericBloc(false);
-
   final GenericBloc<File?> imageCubit = GenericBloc(null);
 
+  // keys
   final GlobalKey<CustomButtonState> btnKey = GlobalKey();
   final GlobalKey<FormState> formKey = GlobalKey();
+
+  // controllers
   final TextEditingController to = TextEditingController();
   final TextEditingController from = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController additionalPhoneController =
+      TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController additionalPhoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-
+  // methods
   Future<void> getImage(BuildContext context) async {
     var image = await HelperMethods.getImage();
     if (image != null) {
@@ -39,11 +42,9 @@ class RegisterDate {
         context: context,
         onConfirm: (date) {
           to.text = DateFormat("HH:mm").format(date!);
-          },
+        },
         title: '');
   }
-
-
 
   void register(BuildContext context) async {
     if (formKey.currentState!.validate()) {

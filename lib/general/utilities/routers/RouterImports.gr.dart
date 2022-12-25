@@ -22,11 +22,11 @@ import 'package:hwzn_base/general/screens/forget_password/forget_password_import
     as _i4;
 import 'package:hwzn_base/general/screens/image_zoom/ImageZoom.dart' as _i11;
 import 'package:hwzn_base/general/screens/login/login_imports.dart' as _i3;
-import 'package:hwzn_base/general/screens/reset_password/reset_password_imports.dart'
+import 'package:hwzn_base/general/screens/reset_password/ResetPasswordImports.dart'
     as _i6;
-import 'package:hwzn_base/general/screens/select_user/select_user_imports.dart'
+import 'package:hwzn_base/general/screens/select_user/SelectUserImports.dart'
     as _i10;
-import 'package:hwzn_base/general/screens/splash/splash_imports.dart' as _i1;
+import 'package:hwzn_base/general/screens/splash/SplashImports.dart' as _i1;
 import 'package:hwzn_base/general/screens/terms/TermsImports.dart' as _i7;
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart'
     as _i2;

@@ -1,4 +1,4 @@
-part of 'register_imports.dart';
+part of 'RegisterImports.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);

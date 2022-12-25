@@ -12,12 +12,13 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    var user = context.read<UserCubit>().state.model;
     return Scaffold(
       backgroundColor: MyColors.white,
-      appBar: const BuildAuthAppBar(haveLeading: true,),
+      appBar: const BuildAuthAppBar(
+        haveLeading: true,
+      ),
       body: GestureDetector(
-        onTap:()=> FocusScope.of(context).requestFocus(FocusNode()),
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(

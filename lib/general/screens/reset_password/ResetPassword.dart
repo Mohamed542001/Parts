@@ -1,4 +1,4 @@
-part of 'reset_password_imports.dart';
+part of 'ResetPasswordImports.dart';
 
 class ResetPassword extends StatefulWidget {
   final String email;
@@ -24,8 +24,12 @@ class _ResetPasswordState extends State<ResetPassword> {
           children: [
             const BuildHeaderLogo(),
             const BuildHeaderTitle(title: "استرجاع كلمه المرور"),
-            ResetPasswordForm(resetPasswordData: resetPasswordData),
-            ResetPasswordButton(resetPasswordData: resetPasswordData, code:widget.code,email: widget.email,),
+            BuildResetPasswordInputs(resetPasswordData: resetPasswordData),
+            BuildResetPasswordButton(
+              resetPasswordData: resetPasswordData,
+              code: widget.code,
+              email: widget.email,
+            ),
           ],
         ),
       ),

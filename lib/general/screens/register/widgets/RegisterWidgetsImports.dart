@@ -10,15 +10,15 @@ import 'package:hwzn_base/general/helper/validator/Validator.dart';
 import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/packages/input_fields/GenericTextField.dart';
 import 'package:hwzn_base/general/packages/localization/Localizations.dart';
-import 'package:hwzn_base/general/screens/register/register_imports.dart';
+import 'package:hwzn_base/general/screens/register/RegisterImports.dart';
 import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/widgets/LoadingButton.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 
 import '../../../../../../res.dart';
 
-part 'build_have_account.dart';
-part 'build_register_button.dart';
-part 'build_register_fields.dart';
-part 'build_terms_and_policy.dart';
-part "build_upload_image.dart";
+part 'BuildHaveAccount.dart';
+part 'BuildRegisterButton.dart';
+part 'BuildRegisterInputs.dart';
+part 'BuildRegisterTerms.dart';
+part "BuildUploadImage.dart";

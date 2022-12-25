@@ -1,4 +1,4 @@
-part of 'register_widgets_imports.dart';
+part of 'RegisterWidgetsImports.dart';
 
 class BuildUploadImage extends StatelessWidget {
   final RegisterDate registerDate;

@@ -1,13 +1,16 @@
-part of 'reset_password_imports.dart';
+part of 'ResetPasswordImports.dart';
 
 class ResetPasswordData {
+  // keys
   GlobalKey<FormState> formKey = GlobalKey();
 
+  // controllers
   TextEditingController code = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   GlobalKey<CustomButtonState> btnKey = GlobalKey();
 
+  // methods
   void onResetPassword(BuildContext context, String phone) async {
     AutoRouter.of(context).pushAndPopUntil(const LoginRoute(), predicate: (_)=>false);
     return;

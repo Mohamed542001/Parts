@@ -1,11 +1,11 @@
-part of 'verify_code_widgets_imports.dart';
+part of 'VerifyCodeWidgetsImports.dart';
 
-class VerifyCodeButton extends StatelessWidget {
+class BuildVerifyButton extends StatelessWidget {
   final VerifyCodeData verifyCodeData;
   final String email;
   final StopWatchTimer stopWatchTimer;
 
-  const VerifyCodeButton(
+  const BuildVerifyButton(
       {Key? key,
       required this.verifyCodeData,
       required this.email,

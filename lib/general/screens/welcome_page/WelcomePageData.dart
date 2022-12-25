@@ -1,7 +1,10 @@
 part of 'WelcomePageImports.dart';
 
 class WelcomePageData {
-  GenericBloc<int> pagesCubit = GenericBloc(0);
+  // blocs
+  final GenericBloc<int> pagesCubit = GenericBloc(0);
+
+  // variables
   List<Widget> data = [];
 
   void initPagesData() {

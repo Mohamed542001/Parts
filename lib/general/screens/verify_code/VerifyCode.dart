@@ -1,4 +1,4 @@
-part of 'verify_code_imports.dart';
+part of 'VerifyCodeImports.dart';
 
 class VerifyCode extends StatefulWidget {
   final String email;
@@ -49,13 +49,8 @@ class _VerifyCodeState extends State<VerifyCode> {
               children: [
                 const BuildHeaderLogo(),
                 const BuildHeaderTitle(title: "Enter Verification Code"),
-                Form(
-                    key: verifyCodeData.formKey,
-                    child: BuildPinField(
-                        onComplete: verifyCodeData.onComplete,
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15))),
-                VerifyCodeButton(
+               BuildCodeField(verifyCodeData: verifyCodeData),
+                BuildVerifyButton(
                   verifyCodeData: verifyCodeData,
                   email: widget.email,
                   stopWatchTimer: stopWatchTimer!,

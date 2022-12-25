@@ -1,13 +1,19 @@
 part of 'login_imports.dart';
 
 class LoginData {
+  // keys
   final GlobalKey<FormState> formKey = GlobalKey();
   final GlobalKey<CustomButtonState> btnKey = GlobalKey();
+
+  // controllers
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController student = TextEditingController();
+
+  // blocs
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
 
+  // methods
   void userLogin(BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
     if (formKey.currentState!.validate()) {

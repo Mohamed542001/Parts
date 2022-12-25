@@ -1,14 +1,14 @@
-part of 'splash_imports.dart';
+part of 'SplashImports.dart';
 
 class SplashController {
+  // variables
   Location location = Location();
 
-
+  // methods
   void checkingData(BuildContext context) async {
    // if (!kIsWeb) GlobalNotification.instance.setupNotification(context);
     Future.delayed(const Duration(milliseconds: 1500), () => manipulateSplashData(context));
   }
-
 
   Future<void> manipulateSplashData(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -27,4 +27,5 @@ class SplashController {
       AutoRouter.of(context).push(const WelcomePageRoute());
     }
   }
+
 }
