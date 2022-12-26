@@ -16,13 +16,13 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AuthScaffold(
       appBar: const BuildAuthAppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            const BuildHeaderLogo(),
+            const HeaderLogo(),
             const BuildHeaderTitle(title: "استرجاع كلمه المرور"),
             BuildResetPasswordInputs(resetPasswordData: resetPasswordData),
             BuildResetPasswordButton(

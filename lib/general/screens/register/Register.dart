@@ -17,7 +17,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -25,7 +25,7 @@ class _RegisterState extends State<Register> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              const BuildHeaderLogo(),
+              const HeaderLogo(),
               const BuildHeaderTitle(title:"Create Account"),
               BuildRegisterFields(registerDate: registerDate),
               BuildUploadImage(registerDate: registerDate),

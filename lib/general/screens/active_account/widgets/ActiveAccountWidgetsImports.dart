@@ -5,6 +5,6 @@ import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/packages/localization/Localizations.dart';
 import 'package:hwzn_base/general/widgets/LoadingButton.dart';
 
-import '../active_account_imports.dart';
+import '../ActiveAccountImports.dart';
 
-part 'build_active_button.dart';
+part 'BuildActiveButton.dart';

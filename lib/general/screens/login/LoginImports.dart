@@ -11,11 +11,12 @@ import 'package:hwzn_base/general/helper/helper_methods/HelperMethods.dart';
 import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/packages/localization/Localizations.dart';
 import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
+import 'package:hwzn_base/general/widgets/AuthScaffold.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 
-import '../../widgets/build_auth_app_bar.dart';
-import '../../widgets/build_header_logo.dart';
+import '../../widgets/AuthAppBar.dart';
+import '../../widgets/HeaderLogo.dart';
 import 'widgets/login_widgets_imports.dart';
 
-part 'login.dart';
-part 'login_data.dart';
+part 'Login.dart';
+part 'LoginData.dart';

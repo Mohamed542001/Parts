@@ -5,12 +5,13 @@ import 'package:hwzn_base/general/constants/MyColors.dart';
 import 'package:hwzn_base/general/helper/configration/CustomButtonAnimation.dart';
 import 'package:hwzn_base/general/screens/select_user/widgets/SelectUserWidgetsImports.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
-import 'package:hwzn_base/general/widgets/build_header_logo.dart';
+import 'package:hwzn_base/general/widgets/HeaderLogo.dart';
 
 import '../../blocks/user_cubit/user_cubit.dart';
 import '../../models/UserModel.dart';
 import '../../models/customer_model.dart';
 import '../../utilities/routers/RouterImports.gr.dart';
+import '../../widgets/AuthScaffold.dart';
 
 
 part 'SelectUser.dart';

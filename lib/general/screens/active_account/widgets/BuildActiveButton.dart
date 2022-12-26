@@ -1,4 +1,4 @@
-part of 'active_account_widgets_imports.dart';
+part of 'ActiveAccountWidgetsImports.dart';
 
 class BuildActiveButton extends StatelessWidget {
   final ActiveAccountController controller;

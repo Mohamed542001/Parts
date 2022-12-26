@@ -6,7 +6,6 @@ class ContactUs extends StatefulWidget {
 }
 
 class _ContactUsState extends State<ContactUs> {
-
   final ContactUsData contactUsData = ContactUsData();
 
   @override
@@ -16,7 +15,7 @@ class _ContactUsState extends State<ContactUs> {
         BlocConsumer<LocationCubit, LocationState>(
           bloc: contactUsData.locationCubit,
           listener: (context, state) {
-            contactUsData.address.text=state.model?.address??"";
+            contactUsData.address.text = state.model?.address ?? "";
           },
           builder: (context, state) {
             return GenericTextField(
@@ -31,7 +30,6 @@ class _ContactUsState extends State<ContactUs> {
             );
           },
         ),
-
       ],
     );
   }

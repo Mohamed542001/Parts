@@ -1,4 +1,4 @@
-part of 'login_imports.dart';
+part of 'LoginImports.dart';
 
 class LoginData {
   // keys

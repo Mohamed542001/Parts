@@ -18,7 +18,7 @@ class _TermsState extends State<Terms> with TermsData {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AuthScaffold(
       appBar: DefaultAppBar(title: tr(context, "terms")),
       body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
         bloc: termsCubit,

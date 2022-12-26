@@ -1,12 +1,17 @@
 part of 'LocationAddressImports.dart';
 
 class LocationAddressData {
+  // keys
   final GlobalKey<ScaffoldState> _scaffold =  GlobalKey<ScaffoldState>();
+
+  // controllers
   final Completer<GoogleMapController> controller = Completer();
+
+  // variables
   late LocationModel locationModel;
   final apiKey = "AIzaSyDIBH6mfPQ13UnF9aZtmaUQtuu-mQcxxb0";
 
-
+  // methods
   void getLocationAddress(BuildContext context) async {
     LatLng loc = LatLng(locationModel.lat,locationModel.lng);
     String address = await MapMethods.getAddress(loc,context);

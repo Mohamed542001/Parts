@@ -16,6 +16,9 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ContactUs),
     AdaptiveRoute(page: ImageZoom),
 
+    // user routes
+    AdaptiveRoute(page: Register),
+
 
   ],
 )

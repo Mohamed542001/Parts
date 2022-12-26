@@ -11,12 +11,12 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/widgets/LoadingButton.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 import 'package:hwzn_base/res.dart';
-import '../login_imports.dart';
+import '../LoginImports.dart';
 
 
-part 'build_login_form.dart';
-part 'build_login_button.dart';
-part 'build_forget_password_view.dart';
-part 'dont_have_account.dart';
-part 'build_social.dart';
-part 'build_title.dart';
+part 'BuildLoginForm.dart';
+part 'BuildLoginButton.dart';
+part 'BuildForgetPasswordView.dart';
+part 'BuildDontHaveAccount.dart';
+part 'BuildSocial.dart';
+part 'BuildTitle.dart';

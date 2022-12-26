@@ -45,16 +45,18 @@ class CachedImage extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: imageProvider,
-                  fit: fit ?? BoxFit.fill,
-                  colorFilter: colorFilter),
-              borderRadius:
-                  haveRadius ? borderRadius ?? BorderRadius.circular(0) : null,
-              shape: boxShape ?? BoxShape.rectangle,
-              border: Border.all(
-                  color: borderColor ?? Colors.transparent,
-                  width: borderWidth ?? 1)),
+            image: DecorationImage(
+              image: imageProvider,
+              fit: fit ?? BoxFit.fill,
+              colorFilter: colorFilter,
+            ),
+            borderRadius:
+                haveRadius ? borderRadius ?? BorderRadius.circular(0) : null,
+            shape: boxShape ?? BoxShape.rectangle,
+            border: Border.all(
+                color: borderColor ?? Colors.transparent,
+                width: borderWidth ?? 1),
+          ),
           alignment: alignment ?? Alignment.center,
           child: child),
       placeholder: (context, url) => Container(
@@ -62,12 +64,15 @@ class CachedImage extends StatelessWidget {
         height: height,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            borderRadius:
-                haveRadius ? borderRadius ?? BorderRadius.circular(0) : null,
-            border:
-                Border.all(color: borderColor ?? Colors.transparent, width: 1),
-            shape: boxShape ?? BoxShape.rectangle,
-            color: bgColor ?? DecorationUtils.primaryColor.withOpacity(.5)),
+          borderRadius:
+              haveRadius ? borderRadius ?? BorderRadius.circular(0) : null,
+          border: Border.all(
+            color: borderColor ?? Colors.transparent,
+            width: 1,
+          ),
+          shape: boxShape ?? BoxShape.rectangle,
+          color: bgColor ?? DecorationUtils.primaryColor.withOpacity(.5),
+        ),
         child: SpinKitFadingCircle(
             color: DecorationUtils.primaryColor, size: 30.0),
       ),
@@ -79,11 +84,16 @@ class CachedImage extends StatelessWidget {
             color: bgColor ?? DecorationUtils.primaryColor.withOpacity(.5),
             borderRadius:
                 haveRadius ? borderRadius ?? BorderRadius.circular(0) : null,
-            border:
-                Border.all(color: borderColor ?? Colors.transparent, width: 1),
+            border: Border.all(
+              color: borderColor ?? Colors.transparent,
+              width: 1,
+            ),
             shape: boxShape ?? BoxShape.rectangle),
         child: Stack(
-          children: [placeHolder ?? child ?? Container(), child ?? Container()],
+          children: [
+            placeHolder ?? child ?? Container(),
+            child ?? Container(),
+          ],
         ),
       ),
     );

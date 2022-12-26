@@ -1,4 +1,4 @@
-part of 'forget_password_imports.dart';
+part of 'ForgetPasswordImports.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -12,13 +12,13 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            const BuildHeaderLogo(),
+            const HeaderLogo(),
             const BuildHeaderTitle(title:"نسيت كلمه المرور ؟"),
             BuildForgetForm(forgetPasswordData: forgetPasswordData),
             BuildForgetPasswordButton(forgetPasswordData: forgetPasswordData),

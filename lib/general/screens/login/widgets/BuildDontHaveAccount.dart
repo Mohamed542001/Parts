@@ -1,4 +1,5 @@
-part of'login_widgets_imports.dart';
+part of 'login_widgets_imports.dart';
+
 class BuildDontHaveAccount extends StatelessWidget {
   const BuildDontHaveAccount({Key? key}) : super(key: key);
 
@@ -11,16 +12,16 @@ class BuildDontHaveAccount extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyText(
-            title: tr(context,"don'tHaveAccount"),
+            title: tr(context, "don'tHaveAccount"),
             color: MyColors.black,
             size: 13,
           ),
           InkWell(
-           // onTap: ()=>AutoRouter.of(context).push(RegisterRoute()),
+            onTap: () => AutoRouter.of(context).push(RegisterRoute()),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal:5),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: MyText(
-                title: tr(context,"createAccount"),
+                title: "تسجيل جديد",
                 color: MyColors.primary,
                 size: 13,
                 decoration: TextDecoration.underline,

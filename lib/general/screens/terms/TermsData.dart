@@ -2,10 +2,10 @@ part of 'TermsImports.dart';
 
 class TermsData {
   // keys
-  GlobalKey<ScaffoldState> scaffold = new GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
 
   // blocs
-  final GenericBloc<String> termsCubit = new GenericBloc("");
+  final GenericBloc<String> termsCubit = GenericBloc("");
 
   // methods
   void fetchData(BuildContext context)async {

@@ -40,14 +40,14 @@ class _VerifyCodeState extends State<VerifyCode> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        appBar: const BuildAuthAppBar(),
+      child: AuthScaffold(
+        appBar: BuildAuthAppBar(),
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const BuildHeaderLogo(),
+                const HeaderLogo(),
                 const BuildHeaderTitle(title: "Enter Verification Code"),
                BuildCodeField(verifyCodeData: verifyCodeData),
                 BuildVerifyButton(

@@ -5,6 +5,8 @@ import 'package:hwzn_base/general/helper/configration/CustomButtonAnimation.dart
 import 'package:hwzn_base/general/helper/configration/DecorationUtils.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 
+import '../constants/MyColors.dart';
+
 
 
 class LoadingButton extends StatelessWidget {
@@ -19,6 +21,8 @@ class LoadingButton extends StatelessWidget {
   final double? width;
   final double? fontSize;
   final String? fontFamily;
+  final FontWeight? fontWeight;
+  final Widget? child;
 
   LoadingButton({
     required this.title,
@@ -32,6 +36,8 @@ class LoadingButton extends StatelessWidget {
     this.fontSize,
     this.width,
     required this.btnKey,
+    this.child,
+    this.fontWeight,
   });
 
   @override
@@ -47,22 +53,23 @@ class LoadingButton extends StatelessWidget {
             onTap: onTap,
             width: width ?? MediaQuery.of(context).size.width,
             minWidth: 45,
-            height: 53,
+            height: 45,
             color: color ?? DecorationUtils.primaryColor,
-            borderRadius: borderRadius ?? 10,
+            borderRadius: borderRadius?? 0,
             borderSide: BorderSide(color: borderColor ?? border, width: 1),
+            child: child?? MyText(
+              title: "$title",
+              size: fontSize??11,
+              color: textColor ?? MyColors.black,
+              fontFamily: fontFamily,
+              fontWeight: fontWeight?? FontWeight.w600,
+            ),
             loader: Container(
               padding: const EdgeInsets.all(10),
               child: const SpinKitRotatingCircle(
                 color: Colors.white,
-                size: 20
+                size: 20,
               ),
-            ),
-            child: MyText(
-              title: title,
-              size: fontSize??12,
-              color: textColor ?? Colors.white,
-              fontFamily: GoogleFonts.tajawal().fontFamily ,
             ),
           ),
         ],

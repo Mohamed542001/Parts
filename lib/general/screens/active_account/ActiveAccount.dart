@@ -1,4 +1,4 @@
-part of 'active_account_imports.dart';
+part of 'ActiveAccountImports.dart';
 
 class ActiveAccount extends StatefulWidget {
   final String email;
@@ -21,8 +21,7 @@ class _ActiveAccountState extends State<ActiveAccount> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyColors.white,
+    return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),

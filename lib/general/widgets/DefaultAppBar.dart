@@ -7,24 +7,27 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget? leading;
   final List<Widget>? actions;
-  final double? size ;
+  final double? size;
 
-  const DefaultAppBar({Key? key,
-    required this.title,
-    this.actions = const [],
-    this.leading,
-    this.size
-  }) : super(key: key);
+  const DefaultAppBar(
+      {Key? key,
+      required this.title,
+      this.actions = const [],
+      this.leading,
+      this.size})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: leading ??  InkWell(
-          onTap: () => AutoRouter.of(context).pop(),
-          child: Icon(
-            Icons.arrow_back,
-            color: MyColors.white
-          )),
+      leading: leading ??
+          InkWell(
+            onTap: () => AutoRouter.of(context).pop(),
+            child: Icon(
+              Icons.arrow_back,
+              color: MyColors.white,
+            ),
+          ),
       elevation: 0,
       backgroundColor: MyColors.primary,
       title: Text(title),
@@ -46,5 +49,5 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(size??85);
+  Size get preferredSize => Size.fromHeight(size ?? 85);
 }
