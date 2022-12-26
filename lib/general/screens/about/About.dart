@@ -16,6 +16,7 @@ class _AboutState extends State<About> with AboutData {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const DefaultAppBar(title: 'عن التطبيق'),
+      showTitle: false,
       body: BlocBuilder<GenericBloc<String>, GenericState<String>>(
         bloc: aboutCubit,
         builder: (_, state) {

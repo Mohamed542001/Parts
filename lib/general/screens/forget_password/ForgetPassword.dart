@@ -14,12 +14,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
+      title: "نسيت كلمه المرور ؟",
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            const HeaderLogo(),
-            const BuildHeaderTitle(title:"نسيت كلمه المرور ؟"),
             BuildForgetForm(forgetPasswordData: forgetPasswordData),
             BuildForgetPasswordButton(forgetPasswordData: forgetPasswordData),
           ],

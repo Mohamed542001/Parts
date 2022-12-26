@@ -13,20 +13,15 @@ class _SelectUserState extends State<SelectUser> {
   @override
   Widget build(BuildContext context) {
     return AuthScaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Expanded(child: HeaderLogo()),
-            BuildSelectUserText(),
-            Expanded(
-              child: BuildSelectUserButtons(
-                selectUserData: selectUserData,
-              ),
-            ),
-          ],
-        ),
+      showTitle: false,
+      logoTopPadding: 100,
+      body: Column(
+        children: [
+          BuildSelectUserText(),
+          BuildSelectUserButtons(
+            selectUserData: selectUserData,
+          ),
+        ],
       ),
     );
   }

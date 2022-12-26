@@ -14,21 +14,17 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: false),
+      title: tr(context,"login"),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              const HeaderLogo(),
-              const BuildTitle(),
-              BuildLoginForm(loginData: loginData),
-              BuildLoginButton(loginData: loginData),
-              const BuildForgetPasswordView(),
-              const BuildSocial(),
-              const BuildDontHaveAccount()
-            ],
-          ),
+        child: Column(
+          children: [
+            BuildLoginForm(loginData: loginData),
+            BuildLoginButton(loginData: loginData),
+            const BuildForgetPasswordView(),
+            const BuildSocial(),
+            const BuildDontHaveAccount()
+          ],
         ),
       ),
     );

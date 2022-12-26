@@ -23,10 +23,11 @@ class _ActiveAccountState extends State<ActiveAccount> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
+      showLogo: false,
+      title: "Enter Code",
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         children: [
-          const BuildHeaderTitle(title: "Enter Code"),
           BuildPinField(onComplete: controller.onComplete),
           BuildActiveButton(controller: controller),
         ],

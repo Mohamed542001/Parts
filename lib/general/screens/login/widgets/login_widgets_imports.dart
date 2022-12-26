@@ -19,4 +19,3 @@ part 'BuildLoginButton.dart';
 part 'BuildForgetPasswordView.dart';
 part 'BuildDontHaveAccount.dart';
 part 'BuildSocial.dart';
-part 'BuildTitle.dart';

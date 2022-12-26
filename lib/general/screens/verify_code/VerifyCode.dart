@@ -42,14 +42,13 @@ class _VerifyCodeState extends State<VerifyCode> {
       onWillPop: () async => false,
       child: AuthScaffold(
         appBar: BuildAuthAppBar(),
+        title: "Enter Verification Code",
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const HeaderLogo(),
-                const BuildHeaderTitle(title: "Enter Verification Code"),
-               BuildCodeField(verifyCodeData: verifyCodeData),
+                BuildCodeField(verifyCodeData: verifyCodeData),
                 BuildVerifyButton(
                   verifyCodeData: verifyCodeData,
                   email: widget.email,

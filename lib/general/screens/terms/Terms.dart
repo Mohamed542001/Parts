@@ -20,6 +20,8 @@ class _TermsState extends State<Terms> with TermsData {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: DefaultAppBar(title: tr(context, "terms")),
+      showTitle: false,
+      showLogo: false,
       body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
         bloc: termsCubit,
         builder: (_,state){

@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:hwzn_base/res.dart';
 
 class HeaderLogo extends StatelessWidget {
-  const HeaderLogo({Key? key}) : super(key: key);
+  final double? topPadding;
+
+  const HeaderLogo({Key? key, this.topPadding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric( horizontal: 50),
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.only(
+        top: topPadding ?? 0,
+        right: 50,
+        left: 50,
+        bottom: 20,
+      ),
       child: Image(
         height: MediaQuery.of(context).size.height * 0.25,
         width: MediaQuery.of(context).size.width * 0.55,

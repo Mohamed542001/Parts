@@ -11,6 +11,7 @@ class BuildSelectUserText extends StatelessWidget {
         title: "اختر نوع المستخدم",
         color: MyColors.black,
         size: 17,
+        alien: TextAlign.center,
       ),
     );
   }

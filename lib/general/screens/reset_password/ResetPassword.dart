@@ -18,12 +18,11 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(),
+      title: "استرجاع كلمه المرور",
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            const HeaderLogo(),
-            const BuildHeaderTitle(title: "استرجاع كلمه المرور"),
             BuildResetPasswordInputs(resetPasswordData: resetPasswordData),
             BuildResetPasswordButton(
               resetPasswordData: resetPasswordData,

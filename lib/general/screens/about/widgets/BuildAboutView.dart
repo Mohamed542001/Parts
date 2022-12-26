@@ -10,9 +10,7 @@ class BuildAboutView extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15),
       child: ListView(
-        // mainAxisSize: MainAxisSize.min,
         children: [
-          HeaderLogo(),
           Html(
             data: text,
           ),
