@@ -13,8 +13,11 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return AuthScaffold(
-      appBar:  BuildAuthAppBar(haveLeading: true,onBack:()=>AutoRouter.of(context).popAndPush(const SelectUserRoute())),
-      title: tr(context,"login"),
+      appBar: BuildAuthAppBar(
+          haveLeading: false,
+          onBack: () =>
+              AutoRouter.of(context).popAndPush(const SelectUserRoute())),
+      title: tr(context, "login"),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: Column(
