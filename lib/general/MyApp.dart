@@ -45,10 +45,7 @@ class _MyAppState extends State<MyApp> {
                   initialRoutes: [SplashRoute(navigatorKey: navigatorKey)]
               ),
               routeInformationParser: _appRouter.defaultRouteParser(),
-              builder: (ctx, child) {
-                child =  FlutterEasyLoading(child: child); //do something
-                return child;
-              }
+              builder: (ctx, child) =>FlutterEasyLoading(child: child)
           );
         },
       ),

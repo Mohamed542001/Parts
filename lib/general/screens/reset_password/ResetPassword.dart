@@ -13,6 +13,17 @@ class ResetPassword extends StatefulWidget {
 
 class _ResetPasswordState extends State<ResetPassword> {
   final ResetPasswordData resetPasswordData = ResetPasswordData();
+  @override
+  void initState() {
+    resetPasswordData.handleStopWatchConfig();
+    super.initState();
+  }
+
+  @override
+  void dispose() async {
+    super.dispose();
+    await resetPasswordData.stopWatchTimer?.dispose(); // Need to call dispose function.
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +31,15 @@ class _ResetPasswordState extends State<ResetPassword> {
       appBar: const BuildAuthAppBar(),
       title: "استرجاع كلمه المرور",
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
             BuildResetPasswordInputs(resetPasswordData: resetPasswordData),
             BuildResetPasswordButton(
-              resetPasswordData: resetPasswordData,
-              code: widget.code,
-              email: widget.email,
-            ),
+                resetPasswordData: resetPasswordData,
+                code: widget.code,
+                email: widget.email),
+            BuildResendCode(resetPasswordData: resetPasswordData,email: widget.email)
           ],
         ),
       ),

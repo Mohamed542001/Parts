@@ -1,27 +1,29 @@
 part of 'ContactUsImports.dart';
 
-class ContactUsData {
-  // blocs
-  final LocationCubit locationCubit = LocationCubit();
+class ContactUsData{
 
-  // controllers
-  final TextEditingController address = TextEditingController();
+  final GlobalKey<FormState> formKey =  GlobalKey<FormState>();
+  final GlobalKey<CustomButtonState> btnKey =  GlobalKey<CustomButtonState>();
 
-  // methods
-  void onLocationClick(BuildContext context) async {
-    var loc = await MapMethods.getCurrentLocation(context);
-    locationCubit.onLocationUpdated(LocationModel(
-      lat: loc?.latitude ?? 24.774265,
-      lng: loc?.longitude ?? 46.738586,
-      address: "",
-    ));
-    Navigator.of(context).push(
-      CupertinoPageRoute(
-        builder: (cxt) => BlocProvider.value(
-          value: locationCubit,
-          child: LocationAddress(),
-        ),
-      ),
-    );
+  final TextEditingController name =  TextEditingController();
+  final TextEditingController email =  TextEditingController();
+  final TextEditingController notes =  TextEditingController();
+
+
+
+  void addContactUs(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      btnKey.currentState!.animateForward();
+
+      var send = await GeneralRepository(context)
+          .sendMessage(name: name.text, mail: email.text, message: notes.text);
+      btnKey.currentState!.animateReverse();
+      if (send) {
+        name.clear();
+        email.clear();
+        notes.clear();
+        CustomToast.showSimpleToast(msg: tr(context, "thanks"));
+      }
+    }
   }
 }

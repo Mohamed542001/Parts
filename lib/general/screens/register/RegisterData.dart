@@ -13,12 +13,12 @@ class RegisterDate {
   // controllers
   final TextEditingController to = TextEditingController();
   final TextEditingController from = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  final TextEditingController additionalPhoneController =
-      TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   // methods
   Future<void> getImage(BuildContext context) async {
@@ -47,8 +47,11 @@ class RegisterDate {
   }
 
   void register(BuildContext context) async {
+    AutoRouter.of(context).push(VerifyCodeRoute(email: ''));
+    return;
     if (formKey.currentState!.validate()) {
-      btnKey.currentState!.animateForward();
+      // check terms & conditions
+      btnKey.currentState?.animateForward();
       // add Repo method
       btnKey.currentState?.animateReverse();
       CustomToast.showSimpleToast(msg: "");

@@ -12,7 +12,7 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   void initState() {
-    welcomePageData.initPagesData();
+    welcomePageData.initPagesData(context);
     super.initState();
   }
 
@@ -25,8 +25,7 @@ class _WelcomePageState extends State<WelcomePage> {
           builder: (_, state) => AnimatedSwitcher(
             duration: const Duration(milliseconds: 1500),
             reverseDuration: const Duration(milliseconds: 1500),
-            transitionBuilder: (child, animation) =>
-                FadeTransition(opacity: animation, child: child),
+            transitionBuilder: (child, animation) => FadeTransition(opacity: animation,child: child),
             switchInCurve: Curves.easeIn,
             switchOutCurve: Curves.easeOut,
             child: welcomePageData.data[state.data],

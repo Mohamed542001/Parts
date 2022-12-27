@@ -16,7 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       appBar: const BuildAuthAppBar(haveLeading: true),
       title: "نسيت كلمه المرور ؟",
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
             BuildForgetForm(forgetPasswordData: forgetPasswordData),

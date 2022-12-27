@@ -7,7 +7,22 @@ class WelcomePageData {
   // variables
   List<Widget> data = [];
 
-  void initPagesData() {
+  void initPagesData(BuildContext context) {
+    var pages = context.read<SettingCubit>().state.model.onboardPages;
+    if(pages!=null){
+      pages.reversed;
+      data = List.generate(pages.length, (index) => BuildPageView(
+      key:  Key("$index"),
+      model: WelcomeEntity(
+          title: pages[index].title,
+          desc:pages[index].desc,
+          image: pages[index].image,
+          index: index,
+          last: index == pages.length-1,
+          pageCubit: pagesCubit),
+    ));
+      return;
+    }
     data = [
       BuildPageView(
         key: const Key("1"),

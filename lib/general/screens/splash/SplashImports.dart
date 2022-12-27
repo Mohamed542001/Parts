@@ -8,6 +8,7 @@ import 'package:hwzn_base/general/helper/dio/utils/GlobalState.dart';
 import 'package:hwzn_base/general/helper/storage/Storage.dart';
 import 'package:hwzn_base/general/models/UserModel.dart';
 import 'package:hwzn_base/general/packages/animation_container/AnimationContainer.dart';
+import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
 import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/utilities/utils_functions/UtilsImports.dart';
 import 'package:hwzn_base/res.dart';
@@ -17,4 +18,4 @@ import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'Splash.dart';
-part 'SplashController.dart';
+part 'SplashData.dart';

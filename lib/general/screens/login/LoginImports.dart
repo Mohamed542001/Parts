@@ -11,6 +11,7 @@ import 'package:hwzn_base/general/helper/helper_methods/HelperMethods.dart';
 import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/packages/localization/Localizations.dart';
 import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
+import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/widgets/AuthScaffold.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 

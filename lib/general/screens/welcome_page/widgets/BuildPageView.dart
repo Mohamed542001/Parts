@@ -7,15 +7,16 @@ class BuildPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return CachedImage(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(model.image ?? ""),
-          fit: BoxFit.fill,
-        ),
-      ),
+      url:model.image??"" ,
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage(model.image ?? ""),
+      //     fit: BoxFit.fill,
+      //   ),
+      // ),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
@@ -44,8 +45,7 @@ class BuildPageView extends StatelessWidget {
               children: [
                 Expanded(
                   child: GestureDetector(
-                    onTap: () =>
-                        AutoRouter.of(context).push(const SelectUserRoute()),
+                    onTap: () => AutoRouter.of(context).push(const SelectUserRoute()),
                     child: MyText(
                       title: (model.index! == 2) ? "ابدء" : "تخطي",
                       size: 18,

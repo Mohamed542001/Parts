@@ -14,25 +14,33 @@ class BuildRegisterFields extends StatelessWidget {
       child: Column(
         children: [
           GenericTextField(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            controller: registerDate.nameController,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            controller: registerDate.firstNameController,
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmpty(context),
-            label: "User Name",
+            label: "الاسم",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
           GenericTextField(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            controller: registerDate.lastNameController,
+            fieldTypes: FieldTypes.normal,
+            type: TextInputType.text,
+            action: TextInputAction.next,
+            validate: (value) => value?.validateEmpty(context),
+            label: "اسم العائله",
+            margin: const EdgeInsets.symmetric(vertical: 10),
+          ),
+          GenericTextField(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             controller: registerDate.emailController,
             fieldTypes: FieldTypes.normal,
             type: TextInputType.emailAddress,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmail(context),
-            label: "Email",
+            label: "البريد الالكتروني",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
           GenericTextField(
@@ -43,7 +51,7 @@ class BuildRegisterFields extends StatelessWidget {
             type: TextInputType.phone,
             action: TextInputAction.next,
             validate: (value) => value?.validatePhone(context),
-            label: tr(context, "phone"),
+            label: "رقم الجوال",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
@@ -58,8 +66,32 @@ class BuildRegisterFields extends StatelessWidget {
                   type: TextInputType.text,
                   action: TextInputAction.done,
                   validate: (value) => value?.validatePassword(context),
-                  label: tr(context, "password"),
-                  margin: const EdgeInsets.only(top: 10),
+                  label: "كلمه المرور",
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  suffixIcon: IconButton(
+                    onPressed: () =>
+                        registerDate.passwordCubit.onUpdateData(!state.data),
+                    icon: Icon(
+                      !state.data ? Icons.visibility : Icons.visibility_off,
+                      size: 20,
+                      color: MyColors.grey,
+                    ),
+                  ),
+                );
+              }),
+          BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
+              bloc: registerDate.passwordCubit,
+              builder: (context, state) {
+                return GenericTextField(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  controller: registerDate.confirmPasswordController,
+                  fieldTypes:
+                      !state.data ? FieldTypes.password : FieldTypes.normal,
+                  type: TextInputType.text,
+                  action: TextInputAction.done,
+                  validate: (value) => value?.validatePasswordConfirm(context, pass: registerDate.passwordController.text),
+                  label: "تاكيد كلمه المرور",
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   suffixIcon: IconButton(
                     onPressed: () =>
                         registerDate.passwordCubit.onUpdateData(!state.data),

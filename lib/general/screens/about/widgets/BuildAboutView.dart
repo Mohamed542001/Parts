@@ -9,13 +9,10 @@ class BuildAboutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15),
-      child: ListView(
-        children: [
-          Html(
-            data: text,
-          ),
-        ],
-      ),
+      alignment: Alignment.center,
+      child: Html(
+        data: text
+      )
     );
   }
 }

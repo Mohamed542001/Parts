@@ -1,8 +1,13 @@
 class ApiNames{
 
   // base
-  static const String baseUrl = "https://jawab.hwzn.sa/admin/public/";
+  static const String baseUrl = "https://h.hwzn.sa/api/";
   static const String branch = "1";
+
+  // Setting
+  static const String setting = "settings";
+  static const String userTypes = "user-types";
+
 
   // auth
   static const String aboutApp = "AboutApp";

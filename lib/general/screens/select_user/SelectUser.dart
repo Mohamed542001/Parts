@@ -17,10 +17,8 @@ class _SelectUserState extends State<SelectUser> {
       logoTopPadding: 100,
       body: Column(
         children: [
-          BuildSelectUserText(),
-          BuildSelectUserButtons(
-            selectUserData: selectUserData,
-          ),
+          const BuildSelectUserText(),
+          BuildSelectUserButtons(selectUserData: selectUserData),
         ],
       ),
     );

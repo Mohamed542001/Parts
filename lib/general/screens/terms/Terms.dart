@@ -10,28 +10,14 @@ class Terms extends StatefulWidget {
 
 class _TermsState extends State<Terms> with TermsData {
 
-  @override
-  void initState() {
-    fetchData(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
+    var terms = context.read<SettingCubit>().state.model.terms;
     return AuthScaffold(
       appBar: DefaultAppBar(title: tr(context, "terms")),
       showTitle: false,
-      showLogo: false,
-      body: BlocBuilder<GenericBloc<String>,GenericState<String>>(
-        bloc: termsCubit,
-        builder: (_,state){
-          if(state is GenericUpdateState){
-            return BuildTermsView(text: state.data);
-          }else{
-            return LoadingDialog.showLoadingView();
-          }
-        },
-      ),
+      body: BuildTermsView(text: terms??"")
     );
   }
 }

@@ -13,23 +13,23 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
-import 'package:hwzn_base/general/screens/about/AboutImports.dart' as _i9;
-import 'package:hwzn_base/general/screens/active_account/ActiveAccountImports.dart'
-    as _i6;
+import 'package:hwzn_base/general/screens/about/AboutImports.dart' as _i8;
 import 'package:hwzn_base/general/screens/contact_us/ContactUsImports.dart'
-    as _i10;
+    as _i9;
 import 'package:hwzn_base/general/screens/forget_password/ForgetPasswordImports.dart'
     as _i5;
-import 'package:hwzn_base/general/screens/image_zoom/ImageZoom.dart' as _i11;
+import 'package:hwzn_base/general/screens/image_zoom/ImageZoom.dart' as _i10;
 import 'package:hwzn_base/general/screens/login/LoginImports.dart' as _i4;
 import 'package:hwzn_base/general/screens/register/RegisterImports.dart'
-    as _i12;
+    as _i11;
 import 'package:hwzn_base/general/screens/reset_password/ResetPasswordImports.dart'
-    as _i7;
+    as _i6;
 import 'package:hwzn_base/general/screens/select_user/SelectUserImports.dart'
     as _i3;
 import 'package:hwzn_base/general/screens/splash/SplashImports.dart' as _i1;
-import 'package:hwzn_base/general/screens/terms/TermsImports.dart' as _i8;
+import 'package:hwzn_base/general/screens/terms/TermsImports.dart' as _i7;
+import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart'
+    as _i12;
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart'
     as _i2;
 
@@ -79,23 +79,11 @@ class AppRouter extends _i13.RootStackRouter {
         opaque: true,
       );
     },
-    ActiveAccountRoute.name: (routeData) {
-      final args = routeData.argsAs<ActiveAccountRouteArgs>();
-      return _i13.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: _i6.ActiveAccount(
-          key: args.key,
-          email: args.email,
-          code: args.code,
-        ),
-        opaque: true,
-      );
-    },
     ResetPasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ResetPasswordRouteArgs>();
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i7.ResetPassword(
+        child: _i6.ResetPassword(
           key: args.key,
           email: args.email,
           code: args.code,
@@ -106,21 +94,21 @@ class AppRouter extends _i13.RootStackRouter {
     TermsRoute.name: (routeData) {
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i8.Terms(),
+        child: const _i7.Terms(),
         opaque: true,
       );
     },
     AboutRoute.name: (routeData) {
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i9.About(),
+        child: const _i8.About(),
         opaque: true,
       );
     },
     ContactUsRoute.name: (routeData) {
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i10.ContactUs(),
+        child: const _i9.ContactUs(),
         opaque: true,
       );
     },
@@ -128,14 +116,25 @@ class AppRouter extends _i13.RootStackRouter {
       final args = routeData.argsAs<ImageZoomRouteArgs>();
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i11.ImageZoom(images: args.images),
+        child: _i10.ImageZoom(images: args.images),
         opaque: true,
       );
     },
     RegisterRoute.name: (routeData) {
       return _i13.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i12.Register(),
+        child: const _i11.Register(),
+        opaque: true,
+      );
+    },
+    VerifyCodeRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyCodeRouteArgs>();
+      return _i13.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: _i12.VerifyCode(
+          key: args.key,
+          email: args.email,
+        ),
         opaque: true,
       );
     },
@@ -164,10 +163,6 @@ class AppRouter extends _i13.RootStackRouter {
           path: '/forget-password',
         ),
         _i13.RouteConfig(
-          ActiveAccountRoute.name,
-          path: '/active-account',
-        ),
-        _i13.RouteConfig(
           ResetPasswordRoute.name,
           path: '/reset-password',
         ),
@@ -190,6 +185,10 @@ class AppRouter extends _i13.RootStackRouter {
         _i13.RouteConfig(
           RegisterRoute.name,
           path: '/Register',
+        ),
+        _i13.RouteConfig(
+          VerifyCodeRoute.name,
+          path: '/verify-code',
         ),
       ];
 }
@@ -267,46 +266,7 @@ class ForgetPasswordRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.ActiveAccount]
-class ActiveAccountRoute extends _i13.PageRouteInfo<ActiveAccountRouteArgs> {
-  ActiveAccountRoute({
-    _i14.Key? key,
-    required String email,
-    required String code,
-  }) : super(
-          ActiveAccountRoute.name,
-          path: '/active-account',
-          args: ActiveAccountRouteArgs(
-            key: key,
-            email: email,
-            code: code,
-          ),
-        );
-
-  static const String name = 'ActiveAccountRoute';
-}
-
-class ActiveAccountRouteArgs {
-  const ActiveAccountRouteArgs({
-    this.key,
-    required this.email,
-    required this.code,
-  });
-
-  final _i14.Key? key;
-
-  final String email;
-
-  final String code;
-
-  @override
-  String toString() {
-    return 'ActiveAccountRouteArgs{key: $key, email: $email, code: $code}';
-  }
-}
-
-/// generated route for
-/// [_i7.ResetPassword]
+/// [_i6.ResetPassword]
 class ResetPasswordRoute extends _i13.PageRouteInfo<ResetPasswordRouteArgs> {
   ResetPasswordRoute({
     _i14.Key? key,
@@ -345,7 +305,7 @@ class ResetPasswordRouteArgs {
 }
 
 /// generated route for
-/// [_i8.Terms]
+/// [_i7.Terms]
 class TermsRoute extends _i13.PageRouteInfo<void> {
   const TermsRoute()
       : super(
@@ -357,7 +317,7 @@ class TermsRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.About]
+/// [_i8.About]
 class AboutRoute extends _i13.PageRouteInfo<void> {
   const AboutRoute()
       : super(
@@ -369,7 +329,7 @@ class AboutRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.ContactUs]
+/// [_i9.ContactUs]
 class ContactUsRoute extends _i13.PageRouteInfo<void> {
   const ContactUsRoute()
       : super(
@@ -381,7 +341,7 @@ class ContactUsRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.ImageZoom]
+/// [_i10.ImageZoom]
 class ImageZoomRoute extends _i13.PageRouteInfo<ImageZoomRouteArgs> {
   ImageZoomRoute({required List<dynamic> images})
       : super(
@@ -405,7 +365,7 @@ class ImageZoomRouteArgs {
 }
 
 /// generated route for
-/// [_i12.Register]
+/// [_i11.Register]
 class RegisterRoute extends _i13.PageRouteInfo<void> {
   const RegisterRoute()
       : super(
@@ -414,4 +374,38 @@ class RegisterRoute extends _i13.PageRouteInfo<void> {
         );
 
   static const String name = 'RegisterRoute';
+}
+
+/// generated route for
+/// [_i12.VerifyCode]
+class VerifyCodeRoute extends _i13.PageRouteInfo<VerifyCodeRouteArgs> {
+  VerifyCodeRoute({
+    _i14.Key? key,
+    required String email,
+  }) : super(
+          VerifyCodeRoute.name,
+          path: '/verify-code',
+          args: VerifyCodeRouteArgs(
+            key: key,
+            email: email,
+          ),
+        );
+
+  static const String name = 'VerifyCodeRoute';
+}
+
+class VerifyCodeRouteArgs {
+  const VerifyCodeRouteArgs({
+    this.key,
+    required this.email,
+  });
+
+  final _i14.Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'VerifyCodeRouteArgs{key: $key, email: $email}';
+  }
 }

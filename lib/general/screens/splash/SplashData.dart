@@ -17,6 +17,11 @@ class SplashController {
     InitUtils.initDio(lang: lang ?? "ar");
     InitUtils.initCustomWidgets(language: lang ?? "ar");
     Utils.changeLanguage(lang ?? "ar",context);
+    await GeneralRepository(context).getAppSetting().then((settings){
+      settings.onboardPages?.forEach((element){
+        precacheImage(NetworkImage(element.image??""), context);
+      });
+    });
     var strUser = prefs.get("user");
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));

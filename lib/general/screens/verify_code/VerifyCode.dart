@@ -11,29 +11,16 @@ class VerifyCode extends StatefulWidget {
 
 class _VerifyCodeState extends State<VerifyCode> {
   final VerifyCodeData verifyCodeData = VerifyCodeData();
-  StopWatchTimer? stopWatchTimer;
-
   @override
   void initState() {
-    stopWatchTimer = StopWatchTimer(
-      mode: StopWatchMode.countDown,
-      // presetMillisecond: 20000,
-      onChange: (value) {
-        final displayTime = StopWatchTimer.getDisplayTime(value,
-            milliSecond: false, hours: false);
-        verifyCodeData.timeCubit.onUpdateData(displayTime);
-      },
-    );
-    stopWatchTimer?.setPresetSecondTime(60);
-
-    stopWatchTimer!.onExecute.add(StopWatchExecute.start);
+    verifyCodeData.handleStopWatchConfig();
     super.initState();
   }
 
   @override
   void dispose() async {
     super.dispose();
-    await stopWatchTimer?.dispose(); // Need to call dispose function.
+    await verifyCodeData.stopWatchTimer?.dispose(); // Need to call dispose function.
   }
 
   @override
@@ -41,8 +28,8 @@ class _VerifyCodeState extends State<VerifyCode> {
     return WillPopScope(
       onWillPop: () async => false,
       child: AuthScaffold(
-        appBar: BuildAuthAppBar(),
-        title: "Enter Verification Code",
+        appBar: const BuildAuthAppBar(),
+        title: "اضافه كود التحقيق",
         body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SingleChildScrollView(
@@ -50,10 +37,9 @@ class _VerifyCodeState extends State<VerifyCode> {
               children: [
                 BuildCodeField(verifyCodeData: verifyCodeData),
                 BuildVerifyButton(
-                  verifyCodeData: verifyCodeData,
-                  email: widget.email,
-                  stopWatchTimer: stopWatchTimer!,
-                )
+                    verifyCodeData: verifyCodeData,
+                    email: widget.email,
+                    stopWatchTimer: verifyCodeData.stopWatchTimer!)
               ],
             ),
           ),

@@ -8,6 +8,7 @@ class BuildTermsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       margin: const EdgeInsets.symmetric(horizontal: 15),
       child: Html(
         data: text,

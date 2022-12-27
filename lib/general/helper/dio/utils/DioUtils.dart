@@ -40,6 +40,6 @@ class DioUtils{
     DioUtils.authSentence=authSentence;
     showLoadingDialog=showLoadingFunc;
     DioUtils.header = dio_header;
-    DioHelper.init(base: baseUrl,branch: branch,branchKey: branchKey);
+    DioHelper.init(baseUrl: baseUrl,branch: branch,branchKey: branchKey);
   }
 }

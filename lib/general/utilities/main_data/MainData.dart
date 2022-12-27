@@ -4,6 +4,9 @@ part of 'MainDataImports.dart';
 class MainData {
 
   static List<BlocProvider>  providers(BuildContext context)=>[
+    BlocProvider<SettingCubit>(
+      create: (BuildContext context)=> SettingCubit()
+    ),
     BlocProvider<AuthCubit>(
       create: (BuildContext context)=> AuthCubit()
     ),

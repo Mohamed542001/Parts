@@ -7,23 +7,21 @@ class DioHelper {
   final bool forceRefresh;
   static late String _branch;
   static late String _branchKey;
-  static late String baseUrl ;
+  static late String _baseUrl ;
 
-  static init({required String base, String? branch, String? branchKey}){
+  static init({required String baseUrl, String? branch, String? branchKey}){
+    _baseUrl = baseUrl;
     _branch = branch??"1";
     _branchKey = branchKey??"branchId";
   }
 
   DioHelper({this.forceRefresh = true,required this.context}){
-    _dio = Dio(BaseOptions(baseUrl: baseUrl, contentType: "application/x-www-form-urlencoded; charset=utf-8"))
+    _dio = Dio(BaseOptions(baseUrl: _baseUrl, contentType: "application/x-www-form-urlencoded; charset=utf-8"))
       ..interceptors.add(_getCacheManager().interceptor)
       ..interceptors.add(LogInterceptor(responseBody: true,requestBody: true,logPrint: (data)=>log(data.toString())));
   }
 
-  DioCacheManager _getCacheManager() {
-    _manager =  DioCacheManager(CacheConfig(baseUrl: baseUrl, defaultRequestMethod: "POST"));
-    return _manager;
-  }
+  DioCacheManager _getCacheManager() => DioCacheManager(CacheConfig(baseUrl: _baseUrl, defaultRequestMethod: "POST"));
 
   Options _buildCacheOptions() {
     return buildCacheOptions(
@@ -258,9 +256,10 @@ class DioHelper {
       if(data is String) data = json.decode(response.data);
       switch(response.statusCode){
         case 500:
-          CustomToast.showToastNotification(data["msg"].toString());
+          CustomToast.showToastNotification(data["message"].toString());
           break;
         case 400:
+        case 422:
           if(data["errors"]!=null){
             Map<String,dynamic> errors = data["errors"];
             errors.forEach((key, value){
@@ -270,7 +269,7 @@ class DioHelper {
               });
             });
           }else{
-            CustomToast.showToastNotification(data["msg"].toString());
+            CustomToast.showToastNotification(data["message"].toString());
           }
           break;
         case 401:
@@ -287,7 +286,7 @@ class DioHelper {
     String lang = context.read<LangCubit>().state.locale.languageCode;
     return {
       'Accept': 'application/json',
-      "language": lang,
+      'Accept-Language': lang,
       'Authorization': 'Bearer $token',
     };
   }

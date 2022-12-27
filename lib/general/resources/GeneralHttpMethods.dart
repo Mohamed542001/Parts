@@ -8,6 +8,31 @@ class GeneralHttpMethods {
   GeneralHttpMethods(this.context);
 
 
+  // Setting
+  Future<SettingModel> getAppSetting() async {
+    var data = await GenericHttp<SettingModel>(context).callApi(
+        name: ApiNames.setting,
+        returnType: ReturnType.model,
+        showLoader: false,
+        methodType: MethodType.get,
+        refresh: false,
+        returnDataFun: (data) => data["data"],
+        toJsonFunc: (json) => SettingModel.fromJson(json));
+    context.read<SettingCubit>().onUpdateSettingData(data);
+    return data;
+  }
+
+  Future<List<DropdownModel>> getUserTypes() async {
+    return await GenericHttp<DropdownModel>(context).callApi(
+        name: ApiNames.userTypes,
+        returnType: ReturnType.list,
+        showLoader: false,
+        methodType: MethodType.get,
+        refresh: false,
+        returnDataFun: (data) => data["data"],
+        toJsonFunc: (json) => DropdownModel.fromJson(json));
+  }
+
   Future<bool> userLogin(String phone, String pass) async {
     String? token = await messaging.getToken();
     Map<String, dynamic> body = {

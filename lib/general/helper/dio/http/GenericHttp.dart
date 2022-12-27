@@ -25,12 +25,13 @@ class GenericHttp<T>{
     var dataJson = json??{};
     dataJson.addAll({"lang": DioUtils.lang});
 
-    final connected = await NetworkInfo.isConnected();
-    if (!connected) {
-      return CustomToast.showSimpleToast(msg: "Network connection failed");
-    }
+    // final connected = await NetworkInfo.isConnected();
+    // if (!connected) {
+    //   return CustomToast.showSimpleToast(msg: "Network connection failed");
+    // }
+
     switch (methodType) {
-      case MethodType.get:
+    case MethodType.get:
         return _getData(
             name: name,
             returnType: returnType,
@@ -79,7 +80,7 @@ class GenericHttp<T>{
     bool refresh = true,
     Function(dynamic data)? toJsonFunc,
   }) async {
-    var data = await DioHelper(context: context, forceRefresh: refresh).get(url: name,);
+    var data = await DioHelper(context: context, forceRefresh: refresh).get(url: name);
     return _returnDataFromType(
         data, returnType, toJsonFunc ?? (val) {},dataKeyFun);
   }

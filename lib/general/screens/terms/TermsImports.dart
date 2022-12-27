@@ -1,3 +1,4 @@
+import 'package:hwzn_base/general/blocks/setting_cubit/setting_cubit.dart';
 import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/packages/localization/Localizations.dart';
 import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';

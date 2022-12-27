@@ -1,4 +1,4 @@
-part of 'splash_widgets_imports.dart';
+part of 'splashWidgetsImports.dart';
 
 class BuildSplashLogo extends StatelessWidget {
   const BuildSplashLogo({Key? key}) : super(key: key);

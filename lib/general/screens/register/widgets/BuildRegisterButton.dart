@@ -11,7 +11,7 @@ class BuildRegisterButton extends StatelessWidget {
     return LoadingButton(
       borderRadius: 8,
       borderColor: MyColors.primary,
-      title: "Create New Account",
+      title: "انشاء الحساب",
       onTap: () => registerDate.register(context),
       color: MyColors.primary,
       textColor: MyColors.white,

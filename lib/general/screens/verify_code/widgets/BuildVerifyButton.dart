@@ -19,7 +19,7 @@ class BuildVerifyButton extends StatelessWidget {
         LoadingButton(
             borderRadius: 8,
             borderColor: MyColors.primary,
-            title:"Send",
+            title:"تفعيل",
             onTap: () => verifyCodeData.onActiveAccount(context, email),
             color: MyColors.primary,
             textColor: MyColors.white,
@@ -34,7 +34,7 @@ class BuildVerifyButton extends StatelessWidget {
                     padding:
                     const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
                     child: MyText(
-                      title: "Resend Code After ${state.data} secend",
+                      title: "اعاده ارسال الكود بعد ${state.data} ثانيه ",
                       color: MyColors.black,
                       size: 13,
                       decoration: TextDecoration.underline,
@@ -49,7 +49,7 @@ class BuildVerifyButton extends StatelessWidget {
                       padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
                       child: MyText(
-                        title:"Resend Code",
+                        title:"ارسال الكود",
                         color: MyColors.black,
                         size: 13,
                         decoration: TextDecoration.underline,

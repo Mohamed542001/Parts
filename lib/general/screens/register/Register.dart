@@ -19,15 +19,14 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: true),
-      title: "Create Account",
+      title: "انشاء حساب جديد",
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(
             children: [
               BuildRegisterFields(registerDate: registerDate),
-              BuildUploadImage(registerDate: registerDate),
               BuildTermsAndPolicy(registerDate: registerDate),
               BuildRegisterButton(registerDate: registerDate),
             ],

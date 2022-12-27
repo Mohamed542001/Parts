@@ -29,19 +29,11 @@ class AuthScaffold extends StatelessWidget {
       body: ListView(
         children: [
           Visibility(
-            visible: showLogo,
-            child: HeaderLogo(
-              topPadding: logoTopPadding,
-            ),
-          ),
+              visible: showLogo, child: HeaderLogo(topPadding: logoTopPadding)),
           Visibility(
-            visible: showTitle,
-            child: AuthHeaderText(title: title ?? ''),
-          ),
+              visible: showTitle, child: AuthHeaderText(title: title ?? '')),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: body,
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 15), child: body),
         ],
       ),
     );
