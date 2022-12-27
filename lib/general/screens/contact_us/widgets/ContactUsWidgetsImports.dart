@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:hwzn_base/general/constants/MyColors.dart';
 import 'package:hwzn_base/general/helper/validator/Validator.dart';
@@ -18,5 +9,3 @@ import 'package:hwzn_base/general/widgets/MyText.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 part 'BuildContactUsInputs.dart';
-
-part 'BuildSocial.dart';

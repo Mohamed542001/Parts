@@ -14,17 +14,21 @@ class _ContactUsState extends State<ContactUs> {
 
   @override
   Widget build(BuildContext context) {
-
-    var about = context.read<SettingCubit>().state.model.about;
     return AuthScaffold(
-        appBar: const DefaultAppBar(title: 'تواصل معنا'),
-        showTitle: false,
-        showLogo: true,
+        appBar: const BuildAuthAppBar(haveLeading: true),
         body:Column(
           children: [
             BuildContactUsInputs(contactUsData: contactUsData),
-            const SizedBox(height: 20),
-            BuildSocial(contactUsData: contactUsData),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              child: const BuildSocial(),
+            ),
+            LoadingButton(
+              margin: const EdgeInsets.symmetric(vertical: 5),
+              title: tr(context, "send"),
+              onTap: () => contactUsData.addContactUs(context),
+              btnKey: contactUsData.btnKey,
+            ),
           ],
         )
     );
