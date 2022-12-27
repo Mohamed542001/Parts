@@ -12,7 +12,7 @@ class BuildRegisterButton extends StatelessWidget {
       borderRadius: 8,
       borderColor: MyColors.primary,
       title: "انشاء الحساب",
-      onTap: () => registerDate.register(context),
+      onTap: () => registerDate.onRegister(context),
       color: MyColors.primary,
       textColor: MyColors.white,
       btnKey: registerDate.btnKey,

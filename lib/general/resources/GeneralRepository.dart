@@ -6,26 +6,27 @@ class GeneralRepository {
 
   GeneralRepository(BuildContext context) {
     _context = context;
-    _generalHttpMethods =  GeneralHttpMethods(_context);
+    _generalHttpMethods = GeneralHttpMethods(_context);
   }
 
-
   // setting
-  Future<SettingModel> getAppSetting()=>_generalHttpMethods.getAppSetting();
+  Future<SettingModel> getAppSetting() => _generalHttpMethods.getAppSetting();
 
+  Future<List<DropdownModel>> getUserTypes() =>
+      _generalHttpMethods.getUserTypes();
 
-  Future<List<DropdownModel>> getUserTypes()=>_generalHttpMethods.getUserTypes();
+  Future<bool> register(RegisterModel model) =>
+      _generalHttpMethods.register(model);
 
   Future<bool> setUserLogin(String phone, String pass) =>
       _generalHttpMethods.userLogin(phone, pass);
 
+  Future<bool> activeAccount(String code, String phone) =>
+      _generalHttpMethods.activeAccount(code, phone);
+
   Future<List<BoardingModel>> boarding() => _generalHttpMethods.boarding();
 
-  Future<dynamic> sendCode(String code, String userId) =>
-      _generalHttpMethods.sendCode(code, userId);
-
-  Future<dynamic> resendCode(String userId) =>
-      _generalHttpMethods.resendCode(userId);
+  Future<bool> resendCode(String phone) => _generalHttpMethods.resendCode(phone);
 
   Future<String?> aboutApp() => _generalHttpMethods.aboutApp();
 

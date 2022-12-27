@@ -12,9 +12,10 @@ class ApiNames{
   // auth
   static const String aboutApp = "AboutApp";
   static const String terms = "api/mobile/termsAndConditions";
-  static const String login = "api/mobile/login";
+  static const String login = "login";
+  static const String activateAccount = "activate-account";
   static const String sendCode = "api/mobile/checkVerificationCode";
-  static const String resendCode = "api/mobile/resendVerficationSMS";
+  static const String resendCode = "send-code";
   static const String repeatedQuestions = "api/mobile/faq";
   static const String switchNotify = "SwitchNotify";
   static const String forgetPassword = "api/mobile/sendResetPassCode";
@@ -23,7 +24,7 @@ class ApiNames{
   static const String boarding = "api/mobile/splash";
 
   // customer
-  static const String register = "api/mobile/register";
+  static const String register = "register";
   static const String logOut = "api/mobile/logout";
   static const String editProfile = "api/mobile/editProfile";
   static const String updatePassword = "api/mobile/updatePassword";

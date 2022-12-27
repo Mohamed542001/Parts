@@ -33,6 +33,17 @@ class BuildRegisterFields extends StatelessWidget {
             label: "اسم العائله",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
+          DropdownTextField<DropdownModel>(
+            dropKey: registerDate.userDropKey,
+            hint: "نوع المستخدم",
+            selectedItem: registerDate.selectedUserType,
+            margin: const EdgeInsets.symmetric(vertical: 5),
+            validate: (value) => ValidatorDrop(value).validateDropDown(context),
+            onChange: registerDate.setSelectUser,
+            finData: (data) => registerDate.getUserTypes(context),
+            useName: true,
+            searchHint: "Search",
+          ),
           GenericTextField(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             controller: registerDate.emailController,
@@ -54,6 +65,16 @@ class BuildRegisterFields extends StatelessWidget {
             label: "رقم الجوال",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
+          GenericTextField(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            controller: registerDate.jobController,
+            fieldTypes: FieldTypes.normal,
+            type: TextInputType.text,
+            action: TextInputAction.next,
+            validate: (value) => value?.validateEmpty(context),
+            label: "المهنة",
+            margin: const EdgeInsets.symmetric(vertical: 10),
+          ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
               bloc: registerDate.passwordCubit,
               builder: (context, state) {
@@ -64,7 +85,7 @@ class BuildRegisterFields extends StatelessWidget {
                   fieldTypes:
                       !state.data ? FieldTypes.password : FieldTypes.normal,
                   type: TextInputType.text,
-                  action: TextInputAction.done,
+                  action: TextInputAction.next,
                   validate: (value) => value?.validatePassword(context),
                   label: "كلمه المرور",
                   margin: const EdgeInsets.symmetric(vertical: 10),

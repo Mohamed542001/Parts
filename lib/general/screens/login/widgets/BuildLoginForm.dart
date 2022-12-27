@@ -13,12 +13,12 @@ class BuildLoginForm extends StatelessWidget {
         children: [
           GenericTextField(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-            controller: loginData.email,
+            controller: loginData.phone,
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
             action: TextInputAction.next,
-            validate: (value) => value?.validateEmail(context),
-            label: tr(context, "mail"),
+            validate: (value) => value?.validatePhone(context),
+            label: tr(context, "phone"),
             margin: const EdgeInsets.only(top: 20),
           ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(

@@ -6,7 +6,7 @@ class LoginData {
   final GlobalKey<CustomButtonState> btnKey = GlobalKey();
 
   // controllers
-  TextEditingController email = TextEditingController();
+  TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController student = TextEditingController();
 
@@ -18,10 +18,13 @@ class LoginData {
     FocusScope.of(context).requestFocus(FocusNode());
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
-      String phoneEn = HelperMethods.convertDigitsToLatin(email.text);
       String passEn = HelperMethods.convertDigitsToLatin(password.text);
-      await GeneralRepository(context).setUserLogin(phoneEn, passEn);
+      bool data = await GeneralRepository(context).setUserLogin(phone.text, passEn);
       btnKey.currentState!.animateReverse();
+      if(data == true){
+        // AutoRouter.of(context).push(BuyerHomeRoute());
+        print("=========================>>> true");
+      }
     }
   }
 }

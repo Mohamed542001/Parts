@@ -10,16 +10,15 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/utilities/utils_functions/ApiNames.dart';
 import 'package:hwzn_base/general/utilities/utils_functions/LoadingDialog.dart';
 
-class InitUtils{
-
-  static ThemeData defaultThem=ThemeData(
+class InitUtils {
+  static ThemeData defaultThem = ThemeData(
     primarySwatch: Colors.grey,
     focusColor: MyColors.primary,
     accentColor: MyColors.primary,
     primaryColor: MyColors.primary,
     fontFamily: GoogleFonts.tajawal().fontFamily,
     textTheme: TextTheme(
-      subtitle1:GoogleFonts.tajawal(fontSize: 14),
+      subtitle1: GoogleFonts.tajawal(fontSize: 14),
     ),
   );
 
@@ -34,6 +33,26 @@ class InitUtils{
       showLoadingFunc: LoadingDialog.showLoadingDialog,
       branch: ApiNames.branch,
       authClick: () {},
+      inputStyle: (
+              {String? label,
+              String? hint,
+              Widget? prefixIcon,
+              Widget? suffixIcon,
+              Color? hintColor,
+              Color? fillColor,
+              BorderRadius? radius,
+              Color? focusBorderColor,
+              EdgeInsets? padding,
+              Color? enableColor}) =>
+          CustomInputDecoration(
+              lang: "ar",
+              labelTxt: label,
+              hint: hint,
+              prefixIcon: prefixIcon,
+              suffixIcon: suffixIcon,
+              enableColor: enableColor,
+              customFillColor: fillColor,
+              padding: padding),
     );
   }
 
@@ -44,17 +63,18 @@ class InitUtils{
         ),
         primary: MyColors.primary,
         language: language,
-        inputStyle: ({String? label,
-          String? hint,
-          Widget? prefixIcon,
-          Widget? suffixIcon,
-          Color? hintColor,
-          Color? fillColor,
-          double? radius,
-          Color? focusBorderColor,
-          EdgeInsets? padding,
-          Color? enableColor,
-          double? hintSize}) =>
+        inputStyle: (
+                {String? label,
+                String? hint,
+                Widget? prefixIcon,
+                Widget? suffixIcon,
+                Color? hintColor,
+                Color? fillColor,
+                double? radius,
+                Color? focusBorderColor,
+                EdgeInsets? padding,
+                Color? enableColor,
+                double? hintSize}) =>
             CustomInputDecoration(
                 lang: language,
                 labelTxt: label,

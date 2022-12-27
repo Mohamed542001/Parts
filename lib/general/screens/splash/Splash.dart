@@ -14,6 +14,9 @@ class _SplashState extends State<Splash> {
 
   @override
   void initState() {
+    if (!kIsWeb) {
+      GlobalNotification.instance.setupNotification(context);
+    }
     controller.checkingData(context);
     super.initState();
   }

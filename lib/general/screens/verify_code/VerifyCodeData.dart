@@ -33,22 +33,20 @@ class VerifyCodeData {
     code = value;
   }
 
-  void onActiveAccount(BuildContext context, String phoneOrEmail) async {
-    AutoRouter.of(context).pushAndPopUntil(const LoginRoute(), predicate: (_)=>false);
-    return;
+  void onActiveAccount(BuildContext context, String email) async {
     if (formKey.currentState!.validate()) {
-      if (code!.trim().isEmpty) {
-        CustomToast.showSimpleToast(msg: "Please Enter Code");
-        return;
+      btnKey.currentState?.animateForward();
+      var result =  await GeneralRepository(context).activeAccount(code??'', email);
+      btnKey.currentState?.animateReverse();
+      if(result){
+        AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
       }
-      btnKey.currentState!.animateForward();
-      var data = await GeneralRepository(context).sendCode(code ?? "", phoneOrEmail);
-      btnKey.currentState!.animateReverse();
-      // route to home
     }
   }
 
-  void onResendCode(BuildContext context, String phoneOrEmail) async {
-   // await GeneralRepository(context).resendCode(phoneOrEmail);
+  void onResendCode(BuildContext context, String email) async {
+    await LoadingDialog.showLoadingDialog();
+    await GeneralRepository(context).resendCode(email);
+    EasyLoading.dismiss();
   }
 }

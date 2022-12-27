@@ -8,25 +8,25 @@ extension Validator on String {
   }
 
   String? validateEmpty(BuildContext context,{String? message}) {
-    if (trim().isEmpty) {
-      return message ?? tr(context,"fillField");
+    if (this.trim().isEmpty) {
+      return message ?? "Please fill this field";
     }
     return null;
   }
 
   String? validatePassword(BuildContext context,{String? message}) {
-    if (trim().isEmpty) {
-      return message ?? tr(context,"fillField");
-    } else if (length < 6) {
-      return message ?? tr(context,"passValidation");
+    if (this.trim().isEmpty) {
+      return message ?? "Please fill this field";
+    } else if (!RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
+        .hasMatch(this)) {
+      return message ?? "Enter at least 6 characters containing numbers and letters";
     }
     return null;
   }
 
-
   String? validateEmail(BuildContext context,{String? message}) {
-    if (trim().isEmpty) {
-      return message ?? tr(context,"fillField");
+    if (this.trim().isEmpty) {
+      return message ?? "Please fill this field";
     } else if (!RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(this)) {
@@ -36,7 +36,7 @@ extension Validator on String {
   }
 
   String? validateEmailORNull(BuildContext context,{String? message}) {
-    if (trim().isNotEmpty) {
+    if (this.trim().isNotEmpty) {
       if (!RegExp(
           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
           .hasMatch(this)) {
@@ -47,22 +47,18 @@ extension Validator on String {
   }
 
   String? validatePhone(BuildContext context,{String? message}) {
-    if (trim().isEmpty) {
-      return message ?? tr(context,"fillField");
-    } else if (length < 10 ) {
-      return message ?? " يجب ان لا يقل عدد الارقام عن 10 أحرف وأن يبدأ ب 05  ";
-    }else if(!startsWith("05", 0)){
-      return message??"يجب أن يبدأ رقم الهاتف ب 05 ";
-    }
-    else if (length>10 ) {
-      return message ?? " يجب ان لا يزيد عدد الارقام عن 10 حرف وأن يبدأ ب 05 ";
+    if (this.trim().isEmpty) {
+      return message ?? "Please fill this field";
+    } else if (!startsWith("05", 0) ||
+        this.length > 14 || this.length < 9) {
+      return message ?? "Phone must contain at least 9 numbers staring with 05";
     }
     return null;
   }
 
   String? validatePasswordConfirm(BuildContext context,{required String pass, String? message}) {
-    if (trim().isEmpty) {
-      return message ?? tr(context,"fillField");
+    if (this.trim().isEmpty) {
+      return message ?? "Please fill this field";
     } else if (this != pass) {
       return message ?? tr(context,"confirmValidation");
     }
@@ -73,7 +69,7 @@ extension Validator on String {
 extension ValidatorDrop<DataType> on DataType {
   String? validateDropDown(BuildContext context,{String? message}) {
     if (this == null) {
-      return message ?? tr(context,"fillField");
+      return message ?? "Please fill this field";
     }
     return null;
   }

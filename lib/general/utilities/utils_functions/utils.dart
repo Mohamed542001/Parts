@@ -1,8 +1,8 @@
 part of 'UtilsImports.dart';
 
 class Utils {
-
-  static Future<bool> manipulateLoginData(BuildContext context, dynamic data, String token) async {
+  static Future<bool> manipulateLoginData(
+      BuildContext context, dynamic data, String token) async {
     if (data != null && data["status"] == 200) {
       await Storage.setDeviceId(token);
       UserModel user = UserModel.fromJson(data);
@@ -10,24 +10,25 @@ class Utils {
       GlobalState.instance.set("token", data["data"]["token"]);
       await Storage.saveUserData(user);
       setCurrentUserData(user, context);
-      CustomToast.showSimpleToast(msg: data["msg"]);
+      CustomToast.showSimpleToast(msg: data["message"]);
       return true;
     } else {
-      CustomToast.showSimpleToast(msg: data["msg"]);
+      CustomToast.showSimpleToast(msg: data["message"]);
       return false;
     }
   }
 
-  static Future<dynamic> manipulateActiveData(BuildContext context, dynamic data, String token) async {
+  static Future<dynamic> manipulateActiveData(
+      BuildContext context, dynamic data, String token) async {
     if (data != null && data["status"] == 200) {
-        await Storage.setDeviceId(token);
-        UserModel user = UserModel.fromJson(data);
-        user.token = data["data"]["token"];
-        GlobalState.instance.set("token", data["data"]["token"]);
-        await Storage.saveUserData(user);
-        setCurrentUserData(user, context);
-        CustomToast.showSimpleToast(msg: data["msg"]);
-        return data;
+      await Storage.setDeviceId(token);
+      UserModel user = UserModel.fromJson(data);
+      user.token = data["data"]["token"];
+      GlobalState.instance.set("token", data["data"]["token"]);
+      await Storage.saveUserData(user);
+      setCurrentUserData(user, context);
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return data;
     } else {
       return data;
     }
@@ -45,7 +46,4 @@ class Utils {
     Storage.setLang(lang);
     context.read<LangCubit>().onUpdateLanguage(lang);
   }
-
-
-
 }
