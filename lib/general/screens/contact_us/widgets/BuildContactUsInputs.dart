@@ -13,10 +13,13 @@ class BuildContactUsInputs extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText(
-            title: "الاسم",
-            color: Colors.black,
-            size: 12,
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            child: const MyText(
+              title: "الاسم",
+              color: Colors.black,
+              size: 12,
+            ),
           ),
           GenericTextField(
             fillColor: MyColors.grey.withOpacity(0.2),

@@ -16,6 +16,7 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return AuthScaffold(
         appBar: const BuildAuthAppBar(haveLeading: true),
+        title: "تواصل معنا",
         body:Column(
           children: [
             BuildContactUsInputs(contactUsData: contactUsData),
