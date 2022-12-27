@@ -16,15 +16,24 @@ class LoginData {
   // methods
   void userLogin(BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
+
+    // check validation
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
+
+      // convert arabic numbers to english
       String passEn = HelperMethods.convertDigitsToLatin(password.text);
+
+      // call api
       bool data = await GeneralRepository(context).setUserLogin(phone.text, passEn);
       btnKey.currentState!.animateReverse();
+
+      // navigation action when user is logged in successfully
       if(data == true){
         // AutoRouter.of(context).push(BuyerHomeRoute());
         print("=========================>>> true");
       }
+
     }
   }
 }
