@@ -16,13 +16,14 @@ class WelcomePageData {
       model: WelcomeEntity(
           title: pages[index].title,
           desc:pages[index].desc,
-          image: pages[index].image,
+          image: index == 0 ? Res.onboardingOne:index==1?Res.onboardingTwo:Res.onboardingThree,
           index: index,
           last: index == pages.length-1,
           pageCubit: pagesCubit),
     ));
       return;
     }
+
     data = [
       BuildPageView(
         key: const Key("1"),
@@ -56,5 +57,6 @@ class WelcomePageData {
             pageCubit: pagesCubit),
       ),
     ];
+
   }
 }

@@ -33,7 +33,7 @@ class ResetPasswordData {
     FocusScope.of(context).requestFocus(FocusNode());
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
-      var data = await GeneralRepository(context).resetUserPassword(phone, password.text, password.text);
+      var data = await GeneralRepository(context).resetUserPassword(phone, password.text);
       btnKey.currentState!.animateReverse();
       CustomToast.showSimpleToast(msg: data["msg"]);
     }

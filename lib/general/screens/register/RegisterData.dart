@@ -27,7 +27,27 @@ class RegisterDate {
 
   // methods
 
-  onRegister(BuildContext context) async {
+
+
+  // get data from api for drop down field
+  Future<List<DropdownModel>> getUserTypes(BuildContext context) async {
+    var types = await GeneralRepository(context).getUserTypes();
+    return types;
+  }
+
+  // used to update selected item in user types drop down field
+  void setSelectUser(DropdownModel? model) {
+    selectedUserType = model;
+  }
+
+  Future<void> getImage(BuildContext context) async {
+    var image = await HelperMethods.getImage();
+    if (image != null) {
+      imageCubit.onUpdateData(image);
+    }
+  }
+
+  void onRegister(BuildContext context) async {
     // get device id
     // FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -39,7 +59,7 @@ class RegisterDate {
 
     // fields validation
     if (formKey.currentState!.validate()) {
-      // convert arabic numbers to english
+      // convert arabic digits to latin
       String phoneEn = HelperMethods.convertDigitsToLatin(phoneController.text);
 
       // animate button
@@ -67,40 +87,5 @@ class RegisterDate {
     }
   }
 
-  // get data from api for drop down field
-  Future<List<DropdownModel>> getUserTypes(BuildContext context) async {
-    var types = await GeneralRepository(context).getUserTypes();
-    return types;
-  }
-
-  // used to update selected item in user types drop down field
-  void setSelectUser(DropdownModel? model) {
-    selectedUserType = model;
-  }
-
-  Future<void> getImage(BuildContext context) async {
-    var image = await HelperMethods.getImage();
-    if (image != null) {
-      imageCubit.onUpdateData(image);
-    }
-  }
-
-// void onStartTime(BuildContext context) {
-//   AdaptivePicker.timePicker(
-//       context: context,
-//       onConfirm: (date) {
-//         from.text = DateFormat("HH:mm").format(date!);
-//       },
-//       title: '');
-// }
-//
-// void onEndTime(BuildContext context) {
-//   AdaptivePicker.timePicker(
-//       context: context,
-//       onConfirm: (date) {
-//         to.text = DateFormat("HH:mm").format(date!);
-//       },
-//       title: '');
-// }
 
 }

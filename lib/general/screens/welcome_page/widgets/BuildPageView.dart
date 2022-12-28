@@ -7,16 +7,15 @@ class BuildPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedImage(
+    return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      url:model.image??"" ,
-      // decoration: BoxDecoration(
-      //   image: DecorationImage(
-      //     image: AssetImage(model.image ?? ""),
-      //     fit: BoxFit.fill,
-      //   ),
-      // ),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(model.image ?? ""),
+          fit: BoxFit.fill,
+        ),
+      ),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(

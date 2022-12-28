@@ -3,7 +3,7 @@ part of 'GeneralRepoImports.dart';
 class GeneralHttpMethods {
   final BuildContext context;
 
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  //FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   GeneralHttpMethods(this.context);
 
@@ -28,6 +28,7 @@ class GeneralHttpMethods {
       returnType: ReturnType.list,
       returnDataFun: (data) => data["data"],
       methodType: MethodType.get,
+      refresh: false,
       toJsonFunc: (json) => DropdownModel.fromJson(json),
     ) as List<DropdownModel>;
   }
@@ -42,8 +43,7 @@ class GeneralHttpMethods {
       methodType: MethodType.post,
     );
     if (data != null) {
-      AutoRouter.of(context)
-          .popAndPush(VerifyCodeRoute(email: data["data"]["phone"]));
+      AutoRouter.of(context).popAndPush(VerifyCodeRoute(email: data["data"]["phone"]));
       return true;
     } else {
       return false;
@@ -51,11 +51,11 @@ class GeneralHttpMethods {
   }
 
   Future<bool> activeAccount(String code, String phone) async {
-    String? _token = "await messaging.getToken()";
+    String? token = "await messaging.getToken()";
     Map<String, dynamic> body = {
       "code": code,
       "phone": phone,
-      "device_id": "$_token",
+      "device_id": token,
       "device_type": Platform.isIOS ? "ios" : "android"
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
@@ -73,11 +73,11 @@ class GeneralHttpMethods {
   }
 
   Future<bool> userLogin(String email, String pass) async {
-    String? _token = "await messaging.getToken()";
+    String? token = "await messaging.getToken()";
     Map<String, dynamic> body = {
-      "phone": "$email",
-      "password": "$pass",
-      "device_id": "$_token",
+      "phone": email,
+      "password":pass,
+      "device_id": token,
       "device_type": Platform.isIOS ? "ios" : "android",
     };
 
@@ -90,53 +90,13 @@ class GeneralHttpMethods {
       toJsonFunc: (json) => UserModel.fromJson(json),
       showLoader: false,
     );
-    print("=======>> data : $data");
     if (data != null) {
-      return Utils.manipulateLoginData(context, data, _token ?? "");
+      return Utils.manipulateLoginData(context, data, token);
     } else {
       return false;
     }
   }
 
-  Future<List<BoardingModel>> boarding() async {
-    var data = await GenericHttp<BoardingModel>(context).callApi(
-      name: ApiNames.boarding,
-      returnType: ReturnType.list,
-      showLoader: false,
-      returnDataFun: (json) => json["data"],
-      methodType: MethodType.get,
-      toJsonFunc: (json) => BoardingModel.fromJson(json),
-    );
-    return data;
-  }
-
-  Future<List<QuestionModel>> frequentQuestions() async {
-    return await GenericHttp<QuestionModel>(context).callApi(
-        name: ApiNames.repeatedQuestions,
-        returnType: ReturnType.list,
-        showLoader: false,
-        methodType: MethodType.get,
-        returnDataFun: (data) => data["data"],
-        toJsonFunc: (json) => QuestionModel.fromJson(json))
-    as List<QuestionModel>;
-  }
-
-  // Future<dynamic> sendCode(String code, String phoneOrEmail) async {
-  //   Map<String, dynamic> body = {
-  //     "code": code,
-  //     "phoneOrEmail": phoneOrEmail,
-  //   };
-  //   dynamic data = await GenericHttp<dynamic>(context).callApi(
-  //     name: ApiNames.sendCode,
-  //     json: body,
-  //     returnType: ReturnType.Type,
-  //     showLoader: false,
-  //     methodType: MethodType.Post,
-  //     // toJsonFunc: (json) => UserModel.fromJson(json),
-  //     returnDataFun: (data) => data,
-  //   );
-  //   return data;
-  // }
 
   Future<bool> resendCode(String phone) async {
     Map<String, dynamic> body = {"phone": phone};
@@ -156,34 +116,6 @@ class GeneralHttpMethods {
     }
   }
 
-  Future<String?> aboutApp() async {
-    return await GenericHttp<String>(context).callApi(
-      name: ApiNames.aboutApp,
-      returnType: ReturnType.type,
-      showLoader: false,
-      methodType: MethodType.get,
-    );
-  }
-
-  Future<String?> terms() async {
-    return await GenericHttp<String>(context).callApi(
-      name: ApiNames.terms,
-      returnType: ReturnType.type,
-      showLoader: false,
-      methodType: MethodType.get,
-      returnDataFun: (json) => json["data"]["terms"],
-    );
-  }
-
-  Future<bool> switchNotify() async {
-    dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.switchNotify,
-      returnType: ReturnType.type,
-      showLoader: false,
-      methodType: MethodType.post,
-    );
-    return (data != null);
-  }
 
   Future<dynamic> forgetPassword(String phone) async {
     Map<String, dynamic> body = {
@@ -200,12 +132,11 @@ class GeneralHttpMethods {
     return data;
   }
 
-  Future<dynamic> resetUserPassword(String phoneOrEmail, String newPassword,
-      String confirmationPassword) async {
+  Future<dynamic> resetUserPassword(String phoneOrEmail, String newPassword) async {
     Map<String, dynamic> body = {
       "phoneOrEmail": phoneOrEmail,
       "new_password": newPassword,
-      "confirmation_password": confirmationPassword,
+      "confirmation_password": newPassword,
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.resetPassword,

@@ -107,7 +107,7 @@ class _DropdownTextFieldState<DataType> extends State<DropdownTextField> {
           ),
           child: Center(
             child: MyText(
-              title: widget.label != null ? widget.label! : widget.hint!,
+              title: widget.label != null ? widget.label??"" : widget.hint??"",
               size: 16,
               color: Colors.white,
             ),

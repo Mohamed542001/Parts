@@ -13,32 +13,24 @@ class BuildSocial extends StatelessWidget {
           size: 12,
           fontWeight: FontWeight.bold,
         ),
-        BlocBuilder<SettingCubit, SettingState>(
-          builder: (context, state) {
-            return Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  state.model.socials!.length,
-                  (index) => InkWell(
-                    onTap: () => HelperMethods.launchURL(
-                        url: state.model.socials?[index].link ?? ''),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Image.network(
-                        state.model.socials?[index].image ?? '',
-                        height: 40,
-                        width: 40,
-                      ),
-                    ),
+        Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(Res.facebook, height: 40, width: 40),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  child: SvgPicture.asset(
+                    Res.apple,
+                    height: 40,
+                    width: 40,
                   ),
                 ),
-              ),
-            );
-          },
-        )
+                Image.asset(Res.twitter, height: 40, width: 40)
+              ],
+            )),
       ],
     );
   }

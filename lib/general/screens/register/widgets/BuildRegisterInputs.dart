@@ -42,7 +42,7 @@ class BuildRegisterFields extends StatelessWidget {
             onChange: registerDate.setSelectUser,
             finData: (data) => registerDate.getUserTypes(context),
             useName: true,
-            searchHint: "Search",
+            searchHint: "بحث",
           ),
           GenericTextField(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
