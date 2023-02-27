@@ -149,9 +149,9 @@ flutter:
     - assets/images/logo.png
     - assets/images/marker.png
     - assets/images/mobile.svg
-    - assets/images/onboardingOne.jpeg
-    - assets/images/onboardingThree.jpeg
-    - assets/images/onboardingTwo.jpeg
+    - assets/images/onboardingOne.jpg
+    - assets/images/onboardingThree.jpg
+    - assets/images/onboardingTwo.jpg
     - assets/images/password.svg
     - assets/images/twitter.png
     - assets/images/upload.png

@@ -1,4 +1,4 @@
-package com.hwzn.sa
+package com.parts.sa
 
 import io.flutter.embedding.android.FlutterActivity
 

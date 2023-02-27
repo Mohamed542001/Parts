@@ -1,23 +1,21 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class MyColors{
-  static Color primary = Colors.orangeAccent.withOpacity(.5);
-  static Color backgroundColor = const Color(0xfff0f0f2);
-  static Color yellow = const Color(0xffE8CB3A);
-  static Color secondary =  const Color(0xff2A4571);
-  static Color txtColor = const Color(0xff1a201d);
-  static Color headerColor =  const Color(0xff6e7c87);
-  static Color bg=const Color(0xfffffafa);
-  static Color offWhite=const Color(0xffF2F2F2);
-  static Color gold=const Color(0xffe4aa69);
-  static Color grey=Colors.grey;
+  static const Color primary = Color(0xFF3f4040);
+  static const Color secondary = Color(0xffd6ad40);
+  static const Color headerColor = Color(0xff6e7c87);
+  static const Color bg= Color(0xfffffafa);
+  static const Color offWhite= Color(0xffF2F2F2);
+  static const Color gold= Color(0xffe4aa69);
+  static const Color grey= Colors.grey;
+  static const Color greyBold= Color(0xffEEEEEE);
   static Color greyWhite=Colors.grey.withOpacity(.2);
-  static Color black=const Color(0xff031626);
-  static Color blackOpacity=Colors.black54;
-  static Color white=Colors.white;
-  static Color notifyColor=Colors.black54;
+  static const Color black= Color(0xff031626);
+  static const Color blackOpacity=Colors.black54;
+  static const Color white=Colors.white;
+  static const Color successColor=Color(0xff03A89E);
+  static const Color errorColor= Colors.red;
+  static const Color infoColor= Color(0xfffea632);
 
 
 
